@@ -8,3 +8,6 @@ import android.app.Activity;
 
 public class SHomeMail_2 extends Activity {
 }
+
+
+//나는 진짜 멍청하당 에헿에헿에헿  에겡에겡 오정에겡
