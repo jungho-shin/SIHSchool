@@ -11,6 +11,3 @@ public class SGalleryGridView_1 extends Activity {
 
 
 }
-
-
-// 내꺼당 건들지 마랑 '-'
