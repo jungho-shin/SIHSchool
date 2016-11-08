@@ -6,6 +6,7 @@ import android.app.Activity;
  * Created by user on 2016-11-08.
  */
 
-public class SGalleryGridView_2 extends Activity {
+public class SHomeMail_2 extends Activity {
 }
-//나는 바보당 에헿에헿
+
+
