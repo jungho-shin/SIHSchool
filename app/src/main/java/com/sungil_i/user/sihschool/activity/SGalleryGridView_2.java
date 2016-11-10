@@ -8,4 +8,4 @@ import android.app.Activity;
 
 public class SGalleryGridView_2 extends Activity {
 }
-//나는 바보당 에헿에헿 미미짱 다이스키!! 니코니코니!
+//나는 바보당 에헿에헿 미미짱 다이스키!! 니코니코니!!
