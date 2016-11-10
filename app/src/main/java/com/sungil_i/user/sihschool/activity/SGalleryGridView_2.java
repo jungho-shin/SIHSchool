@@ -9,5 +9,5 @@ import android.app.Activity;
 public class SGalleryGridView_2 extends Activity {
 }
 /*
-돌겜마스터
+돌겜마스터z
 */
