@@ -7,4 +7,7 @@ import android.app.Activity;
  */
 
 public class SGalleryGridView_2 extends Activity {
+
+
+
 }
