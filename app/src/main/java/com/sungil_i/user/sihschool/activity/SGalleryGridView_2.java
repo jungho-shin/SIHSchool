@@ -16,3 +16,4 @@ public class SGalleryGridView_2 extends Activity {
 헉헉.. 미쿠짱... 아이시떼이루욧..!!☆
 와... 와타시모.. 아이시떼루 혜성쿤..!!♥♥
  */
+// 제 인생의 정답은 이곳에 없습니다
