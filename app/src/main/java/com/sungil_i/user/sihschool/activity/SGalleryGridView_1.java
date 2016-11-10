@@ -11,3 +11,4 @@ public class SGalleryGridView_1 extends Activity {
 
 
 }
+// 크큭 내오른손의 흑염룡이 날뛰는구나
