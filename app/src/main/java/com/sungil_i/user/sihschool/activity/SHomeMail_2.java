@@ -8,8 +8,6 @@ import android.app.Activity;
 
 public class SHomeMail_2 extends Activity {
 }
-
-
 /*
 보쿠와 헨타이다!!
 미미짱 다이스키!!
