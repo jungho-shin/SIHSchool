@@ -2,6 +2,7 @@ package com.sungil_i.user.sihschool.service;
 
 import android.util.Log;
 
+import com.sungil_i.user.sihschool.common.Const;
 import com.sungil_i.user.sihschool.datatype.SGalleryData;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.datatype.SScheduleData;
@@ -84,11 +85,11 @@ public class SConnector {
 
             data = new SScheduleData();
             if(splits.length == 1) {
-                data.setDate(splits[1]);
+                data.setDate(splits[0]);
                 data.setTitle("");
             } else if(splits.length == 2) {
-                data.setDate(splits[1]);
-                data.setTitle(splits[2]);
+                data.setDate(splits[0]);
+                data.setTitle(splits[1]);
             }
 
         }
@@ -106,7 +107,7 @@ public class SConnector {
 
         ArrayList<SNoticeData> notices = new ArrayList<SNoticeData>();
 
-        JSONArray datas = request("http://45.32.29.112:5000/notices");
+        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/notices");
 
         if(datas != null) {
 
@@ -149,7 +150,7 @@ public class SConnector {
 
         ArrayList<SScheduleData> schedules = new ArrayList<SScheduleData>();
 
-        JSONArray datas = request("http://45.32.29.112:5000/schedules");
+        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/schedules");
 
         if(datas != null) {
 
@@ -229,7 +230,7 @@ public class SConnector {
 
         ArrayList<SNoticeData> foods = new ArrayList<SNoticeData>();
 
-        JSONArray datas = request("http://45.32.29.112:5000/foods");
+        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/foods");
 
         if(datas != null) {
 
@@ -273,7 +274,7 @@ public class SConnector {
 
         ArrayList<SNoticeData> homes = new ArrayList<SNoticeData>();
 
-        JSONArray datas = request("http://45.32.29.112:5000/homes");
+        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/homes");
 
         for(int i = 0; i < datas.length(); i++) {
 
@@ -313,7 +314,7 @@ public class SConnector {
 
         ArrayList<SNoticeData> jobs = new ArrayList<SNoticeData>();
 
-        JSONArray datas = request("http://45.32.29.112:5000/homes");
+        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/homes");
 
         if(datas != null) {
 
