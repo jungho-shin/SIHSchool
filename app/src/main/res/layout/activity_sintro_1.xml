@@ -4,4 +4,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    ro_1</LinearLayout>
+    ro_1
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/intro_2"
+        android:id="@+id/imageView" />
+</LinearLayout>
