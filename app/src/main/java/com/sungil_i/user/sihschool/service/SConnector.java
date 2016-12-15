@@ -125,6 +125,10 @@ public class SConnector {
 
         ArrayList<SScheduleData> schedules = new ArrayList<SScheduleData>();
 
+        JSONArray datas = request("http://45.32.29.112:5000/schedules");
+
+        Log.d("TEST", ">>>>> datas.length : " + datas.length());
+
         return schedules;
 
     }
@@ -139,17 +143,29 @@ public class SConnector {
 
         ArrayList<SNoticeData> foods = new ArrayList<SNoticeData>();
 
-        for(int i = 0; i < 10; i++) {
+        JSONArray datas = request("http://45.32.29.112:5000/homes");
 
-            SNoticeData data = new SNoticeData();
-            data.setIndex("" + i);
-            data.setAttachment("test " + i);
-            data.setTitle("Schedule title " + i);
-            data.setName("신정호");
-            data.setDate("2016.12.16");
-            data.setHit(i);
+        for(int i = 0; i < datas.length(); i++) {
 
-            foods.add(data);
+            JSONObject data = null;
+
+            try {
+
+                data = (JSONObject) datas.get(i);
+
+                SNoticeData notice = new SNoticeData();
+                notice.setIndex(data.getString("번호"));
+                notice.setAttachment(data.getString("첨부"));
+                notice.setTitle(data.getString("제목"));
+                notice.setName(data.getString("이름"));
+                notice.setDate(data.getString("날짜"));
+                notice.setHit(data.getInt("조회"));
+
+                foods.add(notice);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
         }
 
@@ -164,25 +180,37 @@ public class SConnector {
      *
      * @return
      */
-    public ArrayList<SNoticeData> getHomeMail() {
+    public ArrayList<SNoticeData> getHomes() {
 
-        ArrayList<SNoticeData> homeMails = new ArrayList<SNoticeData>();
+        ArrayList<SNoticeData> homes = new ArrayList<SNoticeData>();
 
-        for(int i = 0; i < 10; i++) {
+        JSONArray datas = request("http://45.32.29.112:5000/homes");
 
-            SNoticeData data = new SNoticeData();
-            data.setIndex("" + i);
-            data.setAttachment("test " + i);
-            data.setTitle("HomeMail title " + i);
-            data.setName("신정호");
-            data.setDate("2016.12.16");
-            data.setHit(i);
+        for(int i = 0; i < datas.length(); i++) {
 
-            homeMails.add(data);
+            JSONObject data = null;
+
+            try {
+
+                data = (JSONObject) datas.get(i);
+
+                SNoticeData notice = new SNoticeData();
+                notice.setIndex(data.getString("번호"));
+                notice.setAttachment(data.getString("첨부"));
+                notice.setTitle(data.getString("제목"));
+                notice.setName(data.getString("이름"));
+                notice.setDate(data.getString("날짜"));
+                notice.setHit(data.getInt("조회"));
+
+                homes.add(notice);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
         }
 
-        return homeMails;
+        return homes;
 
     }
 
@@ -196,17 +224,29 @@ public class SConnector {
 
         ArrayList<SNoticeData> jobs = new ArrayList<SNoticeData>();
 
-        for(int i = 0; i < 10; i++) {
+        JSONArray datas = request("http://45.32.29.112:5000/homes");
 
-            SNoticeData data = new SNoticeData();
-            data.setIndex("" + i);
-            data.setAttachment("test " + i);
-            data.setTitle("HomeMail title " + i);
-            data.setName("신정호");
-            data.setDate("2016.12.16");
-            data.setHit(i);
+        for(int i = 0; i < datas.length(); i++) {
 
-            jobs.add(data);
+            JSONObject data = null;
+
+            try {
+
+                data = (JSONObject) datas.get(i);
+
+                SNoticeData notice = new SNoticeData();
+                notice.setIndex(data.getString("번호"));
+                notice.setAttachment(data.getString("첨부"));
+                notice.setTitle(data.getString("제목"));
+                notice.setName(data.getString("이름"));
+                notice.setDate(data.getString("날짜"));
+                notice.setHit(data.getInt("조회"));
+
+                jobs.add(notice);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
         }
 
