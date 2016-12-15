@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SIHSchool</string>
+
+    <string name="menu_notice">공지</string>
+    <string name="menu_schedule">일정</string>
+    <string name="menu_food">급식</string>
+    <string name="menu_home">가정통신문</string>
+    <string name="menu_job">취업</string>
+    <string name="menu_employee_news">취업자소식</string>
 </resources>
