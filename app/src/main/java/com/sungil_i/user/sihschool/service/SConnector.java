@@ -6,6 +6,7 @@ import com.sungil_i.user.sihschool.datatype.SGalleryData;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.datatype.SScheduleData;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -13,14 +14,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
 /**
  * Created by taos9938 on 2016. 12. 14..
@@ -28,9 +25,14 @@ import java.util.logging.Logger;
 
 public class SConnector {
 
-    private void request(String strUrl) {
+    private JSONArray request(String strUrl) {
+
         Log.d("TEST", "strUrl : " + strUrl);
+
+        JSONArray jsonArray = null;
+
         try {
+
             URL url = new URL(strUrl);
 
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -53,16 +55,24 @@ public class SConnector {
                 Log.d("TEST", line);
             }
 
-            JSONObject jsonObject = new JSONObject(builder.toString());
-            Log.d("TEST", "length : " + jsonObject.length());
+            jsonArray = new JSONArray(builder.toString());
 
         } catch (MalformedURLException e) {
+
             e.printStackTrace();
+
         } catch (IOException e) {
+
             e.printStackTrace();
+
         } catch (JSONException e) {
+
             e.printStackTrace();
+
         }
+
+        return jsonArray;
+
     }
 
     /**
@@ -75,21 +85,31 @@ public class SConnector {
 
         ArrayList<SNoticeData> notices = new ArrayList<SNoticeData>();
 
-        for(int i = 0; i < 10; i++) {
+        JSONArray datas = request("http://45.32.29.112:5000/notices");
 
-            SNoticeData data = new SNoticeData();
-            data.setIndex(i);
-            data.setAttachment("test " + i);
-            data.setTitle("Notice title " + i);
-            data.setName("신정호");
-            data.setDate("2016.12.16");
-            data.setHit(i);
+        for(int i = 0; i < datas.length(); i++) {
 
-            notices.add(data);
+            JSONObject data = null;
+
+            try {
+
+                data = (JSONObject) datas.get(i);
+
+                SNoticeData notice = new SNoticeData();
+                notice.setIndex(data.getString("번호"));
+                notice.setAttachment(data.getString("첨부"));
+                notice.setTitle(data.getString("제목"));
+                notice.setName(data.getString("이름"));
+                notice.setDate(data.getString("날짜"));
+                notice.setHit(data.getInt("조회"));
+
+                notices.add(notice);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
         }
-
-        // request("http://45.32.29.112:5000/notices");
 
         return notices;
 
@@ -122,7 +142,7 @@ public class SConnector {
         for(int i = 0; i < 10; i++) {
 
             SNoticeData data = new SNoticeData();
-            data.setIndex(i);
+            data.setIndex("" + i);
             data.setAttachment("test " + i);
             data.setTitle("Schedule title " + i);
             data.setName("신정호");
@@ -151,7 +171,7 @@ public class SConnector {
         for(int i = 0; i < 10; i++) {
 
             SNoticeData data = new SNoticeData();
-            data.setIndex(i);
+            data.setIndex("" + i);
             data.setAttachment("test " + i);
             data.setTitle("HomeMail title " + i);
             data.setName("신정호");
@@ -179,7 +199,7 @@ public class SConnector {
         for(int i = 0; i < 10; i++) {
 
             SNoticeData data = new SNoticeData();
-            data.setIndex(i);
+            data.setIndex("" + i);
             data.setAttachment("test " + i);
             data.setTitle("HomeMail title " + i);
             data.setName("신정호");

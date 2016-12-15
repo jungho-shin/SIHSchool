@@ -6,18 +6,18 @@ package com.sungil_i.user.sihschool.datatype;
 
 public class SNoticeData {
 
-    private int index;
+    private String index;
     private String attachment;
     private String title;
     private String name;
     private String date;
     private int hit;
 
-    public int getIndex() {
+    public String getIndex() {
         return index;
     }
 
-    public void setIndex(int index) {
+    public void setIndex(String index) {
         this.index = index;
     }
 
