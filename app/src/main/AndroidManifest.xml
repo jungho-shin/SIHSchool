@@ -18,9 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.SGalleryGridView_1"
-            android:label="Selected Image"></activity>
 
 
     </application>
