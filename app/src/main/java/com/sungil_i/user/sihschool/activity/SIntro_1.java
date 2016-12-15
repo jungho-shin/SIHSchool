@@ -21,22 +21,16 @@ public class SIntro_1 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sintro_1);
         handler= new Handler();
-        handler.postDelayed(runnable, 2000);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(SIntro_1.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 2000);
 
     }
 
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            Intent intent = new Intent(SIntro_1.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
     };
 
-
-
-
-
-
-}
