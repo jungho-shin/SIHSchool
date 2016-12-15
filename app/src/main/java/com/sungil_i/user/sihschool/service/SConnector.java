@@ -99,8 +99,9 @@ public class SConnector {
 
     /**
      *
-     * 열린마당 > 공지사항 : 석성희.
+     * 공지 : 열린마당 > 공지사항
      *
+     * @manager : 석성희
      * @return
      */
     public ArrayList<SNoticeData> getNotices() {
@@ -142,8 +143,9 @@ public class SConnector {
 
     /**
      *
-     * 학교생활/학사 > 학사일정 : 안용찬
+     * 일정 : 학교생활/학사 > 학사일정
      *
+     * @manager : 안용찬
      * @return
      */
     public ArrayList<SScheduleData> getSchedules() {
@@ -222,8 +224,9 @@ public class SConnector {
 
     /**
      *
-     * 학교생활/학사 > 급식 > 오늘의 식단 : 양희석
+     * 급식 : 학교생활/학사 > 급식 > 오늘의 식단
      *
+     * @manager : 양희석
      * @return
      */
     public ArrayList<SNoticeData> getFoods() {
@@ -265,9 +268,9 @@ public class SConnector {
 
     /**
      *
-     * 가정통신문 :
-     *     학교생활/학사 > 가정통신문 : 박현기
+     * 가정통신문 : 학교생활/학사 > 가정통신문
      *
+     * @manager : 박현기
      * @return
      */
     public ArrayList<SNoticeData> getHomes() {
@@ -306,8 +309,9 @@ public class SConnector {
 
     /**
      *
-     * 취업 : 취업 > 취업새소식 : 강찬
+     * 취업 : 취업 > 취업새소식
      *
+     * @manager : 강찬
      * @return
      */
     public ArrayList<SNoticeData> getJobs() {
@@ -348,11 +352,18 @@ public class SConnector {
 
     }
 
-    public ArrayList<SNoticeData> getCompanies() {
+    /**
+     *
+     * 취업자소식 : 취업 > 취업박람회
+     *
+     * @manager : 신정호
+     * @return
+     */
+    public ArrayList<SNoticeData> getEmployeesNews() {
 
-        ArrayList<SNoticeData> companies = new ArrayList<SNoticeData>();
+        ArrayList<SNoticeData> employeesNews = new ArrayList<SNoticeData>();
 
-        return companies;
+        return employeesNews;
 
     }
 
