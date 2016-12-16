@@ -37,7 +37,7 @@ public class SEmployeesNews extends CommonActivity {
 
         @Override
         protected ArrayList<SNoticeData> doInBackground(Void... params) {
-            return new SConnector().getNotices();
+            return new SConnector().getEmployeesNews();
         }
 
         @Override

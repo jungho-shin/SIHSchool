@@ -37,7 +37,7 @@ public class SJob extends CommonActivity {
 
         @Override
         protected ArrayList<SNoticeData> doInBackground(Void... params) {
-            return new SConnector().getFoods();
+            return new SConnector().getJobs();
         }
 
         @Override
