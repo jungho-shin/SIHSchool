@@ -24,7 +24,7 @@ public class SIntro_1 extends Activity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SIntro_1.this, MainActivity.class);
+                Intent intent = new Intent(SIntro_1.this, SNotice.class);
                 startActivity(intent);
                 finish();
             }
