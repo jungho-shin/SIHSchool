@@ -22,14 +22,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.SEmployeesNews"/>
         <activity android:name=".activity.SNotice"/>
+        <activity android:name=".activity.SSchedule"/>
         <activity android:name=".activity.SFood"/>
-        <activity android:name=".activity.SJob"/>
         <activity android:name=".activity.SHomeMail"/>
-
-
-
+        <activity android:name=".activity.SJob"/>
+        <activity android:name=".activity.SEmployeesNews"/>
 
     </application>
 
