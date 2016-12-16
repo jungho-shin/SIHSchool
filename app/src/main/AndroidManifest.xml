@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.SIntro_1"
+            android:name=".activity.SIntro"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
             <intent-filter>

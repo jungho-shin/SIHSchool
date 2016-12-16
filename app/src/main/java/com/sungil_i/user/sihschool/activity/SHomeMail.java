@@ -22,10 +22,11 @@ public class SHomeMail extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shomemail);
+        setContentView(R.layout.activity_notice);
 
-        listView = (ListView) findViewById(R.id.listview_2);
+        listView = (ListView) findViewById(R.id.listview);
 
+        new HomeMailTask().execute();
     }
 
     class HomeMailTask extends AsyncTask<Void, Void, ArrayList<SNoticeData>>{

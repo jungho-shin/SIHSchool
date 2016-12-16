@@ -1,7 +1,6 @@
 package com.sungil_i.user.sihschool.widget;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +8,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.sungil_i.user.sihschool.R;
-import com.sungil_i.user.sihschool.activity.SEmployeesNews;
-import com.sungil_i.user.sihschool.activity.SHomeMail;
-import com.sungil_i.user.sihschool.activity.SIntro_1;
 
 /**
  * Created by taos9938 on 2016. 12. 15..
