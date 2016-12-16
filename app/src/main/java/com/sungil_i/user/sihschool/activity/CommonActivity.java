@@ -40,7 +40,7 @@ public class CommonActivity extends Activity implements OnMenuClickListener {
                 startActivity(intent);
                 break;
             case Menus.MENU_SCHEDULE:
-                intent = new Intent(this, SSchedule_1.class);
+                intent = new Intent(this, SSchedule.class);
                 startActivity(intent);
                 break;
             case Menus.MENU_FOOD:

@@ -6,5 +6,5 @@ import android.app.Activity;
  * Created by user on 2016-11-08.
  */
 
-public class SSchedule_1 extends Activity {
+public class SSchedule extends Activity {
 }

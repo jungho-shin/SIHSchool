@@ -9,6 +9,7 @@ import com.sungil_i.user.sihschool.R;
 import com.sungil_i.user.sihschool.adapter.SHomeMailAdapter;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.service.SConnector;
+import com.sungil_i.user.sihschool.widget.Menus;
 
 import java.util.ArrayList;
 
@@ -16,12 +17,13 @@ import java.util.ArrayList;
  * Created by phg54 on 2016-12-15.
  */
 
-public class SHomeMail extends Activity {
+public class SHomeMail extends CommonActivity {
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setCurrentMenu(Menus.MENU_HOME);
         setContentView(R.layout.activity_notice);
 
         listView = (ListView) findViewById(R.id.listview);
