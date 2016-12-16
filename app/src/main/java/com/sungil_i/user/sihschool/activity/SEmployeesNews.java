@@ -25,7 +25,7 @@ public class SEmployeesNews extends CommonActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setCurrentMenu(Menus.MENU_EMPLOYEE_NEWS);
-        setContentView(R.layout.activity_employees_news);
+        setContentView(R.layout.activity_notice);
 
         listView = (ListView) findViewById(R.id.listview);
 
