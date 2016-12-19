@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="menu_focused">#FFECE5</color>
-    <color name="menu_nonfocused">#FFFFFF</color>
+    <color name="menu_focused_bg">#FFECE5</color>
+    <color name="menu_unfocused_bg">#FFFFFF</color>
+    <color name="menu_focused_text_color">#FF4200</color>
+    <color name="menu_unfocused_text_color">#464646</color>
 </resources>

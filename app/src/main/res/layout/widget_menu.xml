@@ -18,7 +18,8 @@
             android:focusableInTouchMode="true"
             android:id="@+id/btn_notice"
             android:gravity="center"
-            android:background="@drawable/selector_widget_menu" />
+            android:textColor="@drawable/selector_widget_menu_text_color"
+            android:background="@drawable/selector_widget_menu_bg" />
 
         <Button
             android:text="@string/menu_schedule"
@@ -28,7 +29,8 @@
             android:focusableInTouchMode="true"
             android:id="@+id/btn_schedule"
             android:gravity="center"
-            android:background="@drawable/selector_widget_menu"/>
+            android:textColor="@drawable/selector_widget_menu_text_color"
+            android:background="@drawable/selector_widget_menu_bg"/>
 
         <Button
             android:text="@string/menu_food"
@@ -38,7 +40,8 @@
             android:focusableInTouchMode="true"
             android:id="@+id/btn_food"
             android:gravity="center"
-            android:background="@drawable/selector_widget_menu"/>
+            android:textColor="@drawable/selector_widget_menu_text_color"
+            android:background="@drawable/selector_widget_menu_bg"/>
 
         <Button
             android:text="@string/menu_home"
@@ -48,7 +51,8 @@
             android:focusableInTouchMode="true"
             android:id="@+id/btn_home"
             android:gravity="center"
-            android:background="@drawable/selector_widget_menu"/>
+            android:textColor="@drawable/selector_widget_menu_text_color"
+            android:background="@drawable/selector_widget_menu_bg"/>
 
         <Button
             android:text="@string/menu_job"
@@ -58,7 +62,8 @@
             android:focusableInTouchMode="true"
             android:id="@+id/btn_job"
             android:gravity="center"
-            android:background="@drawable/selector_widget_menu"/>
+            android:textColor="@drawable/selector_widget_menu_text_color"
+            android:background="@drawable/selector_widget_menu_bg"/>
 
         <Button
             android:text="@string/menu_employee_news"
@@ -68,7 +73,8 @@
             android:focusableInTouchMode="true"
             android:id="@+id/btn_employee_news"
             android:gravity="center"
-            android:background="@drawable/selector_widget_menu"/>
+            android:textColor="@drawable/selector_widget_menu_text_color"
+            android:background="@drawable/selector_widget_menu_bg"/>
 
     </LinearLayout>
 
