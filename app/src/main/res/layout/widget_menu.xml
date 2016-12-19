@@ -1,47 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical">
 
-    <Button
-        android:text="@string/menu_notice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_notice"
-        android:layout_weight="1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal" >
 
-    <Button
-        android:text="@string/menu_schedule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_schedule"
-        android:layout_weight="1" />
+        <Button
+            android:text="@string/menu_notice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:focusableInTouchMode="true"
+            android:id="@+id/btn_notice"
+            android:gravity="center"
+            android:background="@drawable/selector_widget_menu" />
 
-    <Button
-        android:text="@string/menu_food"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_food"
-        android:layout_weight="1" />
+        <Button
+            android:text="@string/menu_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:focusableInTouchMode="true"
+            android:id="@+id/btn_schedule"
+            android:gravity="center"
+            android:background="@drawable/selector_widget_menu"/>
 
-    <Button
-        android:text="@string/menu_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_home"
-        android:layout_weight="1" />
+        <Button
+            android:text="@string/menu_food"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:focusableInTouchMode="true"
+            android:id="@+id/btn_food"
+            android:gravity="center"
+            android:background="@drawable/selector_widget_menu"/>
 
-    <Button
-        android:text="@string/menu_job"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_job"
-        android:layout_weight="1" />
+        <Button
+            android:text="@string/menu_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:focusableInTouchMode="true"
+            android:id="@+id/btn_home"
+            android:gravity="center"
+            android:background="@drawable/selector_widget_menu"/>
 
-    <Button
-        android:text="@string/menu_employee_news"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_employee_news"
-        android:layout_weight="1" />
+        <Button
+            android:text="@string/menu_job"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:focusableInTouchMode="true"
+            android:id="@+id/btn_job"
+            android:gravity="center"
+            android:background="@drawable/selector_widget_menu"/>
+
+        <Button
+            android:text="@string/menu_employee_news"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:focusableInTouchMode="true"
+            android:id="@+id/btn_employee_news"
+            android:gravity="center"
+            android:background="@drawable/selector_widget_menu"/>
+
+    </LinearLayout>
+
 </LinearLayout>
