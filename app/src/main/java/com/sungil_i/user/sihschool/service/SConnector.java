@@ -318,7 +318,7 @@ public class SConnector {
 
         ArrayList<SNoticeData> jobs = new ArrayList<SNoticeData>();
 
-        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/homes");
+        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/jobs");
 
         if(datas != null) {
 
@@ -362,6 +362,8 @@ public class SConnector {
     public ArrayList<SNoticeData> getEmployeesNews() {
 
         ArrayList<SNoticeData> employeesNews = new ArrayList<SNoticeData>();
+
+        // TAOS_TODO
 
         return employeesNews;
 
