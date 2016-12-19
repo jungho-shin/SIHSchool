@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background="@drawable/intro_bg"
+    android:paddingTop="40dp"
+    android:paddingLeft="65dp"
+    android:paddingRight="65dp"
+    android:paddingBottom="60dp"
+    tools:context="com.sungil_i.user.sihschool.activity.SIntro">
 
     ro_1
 
@@ -11,6 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:background="@drawable/intro"
-        android:layout_gravity="center_horizontal" />
+        android:src="@drawable/sungil_logo"
+        android:layout_gravity="center_horizontal"/>
 </LinearLayout>

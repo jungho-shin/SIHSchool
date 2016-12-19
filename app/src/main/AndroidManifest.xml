@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.SIntro"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/AppThemeNoTitle">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,12 +22,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.SNotice"/>
-        <activity android:name=".activity.SSchedule"/>
-        <activity android:name=".activity.SFood"/>
-        <activity android:name=".activity.SHomeMail"/>
-        <activity android:name=".activity.SJob"/>
-        <activity android:name=".activity.SEmployeesNews"/>
+        <activity android:name=".activity.SNotice"
+            android:label="@string/menu_notice" />
+        <activity android:name=".activity.SSchedule"
+            android:label="@string/menu_schedule" />
+        <activity android:name=".activity.SFood"
+            android:label="@string/menu_food" />
+        <activity android:name=".activity.SHomeMail"
+            android:label="@string/menu_home" />
+        <activity android:name=".activity.SJob"
+            android:label="@string/menu_job" />
+        <activity android:name=".activity.SEmployeesNews"
+            android:label="@string/menu_employee_news" />
 
     </application>
 

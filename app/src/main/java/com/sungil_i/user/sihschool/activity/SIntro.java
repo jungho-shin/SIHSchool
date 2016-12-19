@@ -1,9 +1,11 @@
 package com.sungil_i.user.sihschool.activity;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 
 import com.sungil_i.user.sihschool.R;
 
@@ -11,7 +13,7 @@ import com.sungil_i.user.sihschool.R;
  * Created by user on 2016-11-08.
  */
 
-public class SIntro extends Activity {
+public class SIntro extends AppCompatActivity {
 
     Handler handler;
 
@@ -19,6 +21,7 @@ public class SIntro extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sintro_1);
+
         handler= new Handler();
         handler.postDelayed(new Runnable() {
             @Override

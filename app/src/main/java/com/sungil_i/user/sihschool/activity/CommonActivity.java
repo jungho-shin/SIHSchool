@@ -2,6 +2,7 @@ package com.sungil_i.user.sihschool.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.sungil_i.user.sihschool.R;
@@ -12,7 +13,7 @@ import com.sungil_i.user.sihschool.widget.OnMenuClickListener;
  * Created by user on 2016-11-08.
  */
 
-public class CommonActivity extends Activity implements OnMenuClickListener {
+public class CommonActivity extends AppCompatActivity implements OnMenuClickListener {
 
     private Menus menus;
     private int currentMenu;
