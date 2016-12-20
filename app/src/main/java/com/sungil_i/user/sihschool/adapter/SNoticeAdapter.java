@@ -53,17 +53,13 @@ public class SNoticeAdapter extends BaseAdapter {
 
         TextView index = (TextView) convertView.findViewById(R.id.tv_index);
         TextView title = (TextView) convertView.findViewById(R.id.tv_title);
-        TextView name = (TextView) convertView.findViewById(R.id.tv_name);
-        TextView date = (TextView) convertView.findViewById(R.id.tv_date);
-        TextView hits = (TextView) convertView.findViewById(R.id.tv_hits);
+        TextView tv_detail_info = (TextView) convertView.findViewById(R.id.tv_detail_info);
 
         SNoticeData data = getItem(position);
 
         index.setText(data.getIndex());
         title.setText(data.getTitle());
-        name.setText(data.getName());
-        date.setText(data.getDate());
-        hits.setText("" + data.getHit());
+        tv_detail_info.setText("이름 : " + data.getName() + " | " + "날짜 : " + data.getDate() + " | " + " 조회 : " + data.getHit());
 
         return convertView;
     }

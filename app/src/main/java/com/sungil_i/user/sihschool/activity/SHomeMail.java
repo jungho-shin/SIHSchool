@@ -1,12 +1,11 @@
 package com.sungil_i.user.sihschool.activity;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
 
 import com.sungil_i.user.sihschool.R;
-import com.sungil_i.user.sihschool.adapter.SHomeMailAdapter;
+import com.sungil_i.user.sihschool.adapter.SNoticeAdapter;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.service.SConnector;
 import com.sungil_i.user.sihschool.widget.Menus;
@@ -45,7 +44,7 @@ public class SHomeMail extends CommonActivity {
 
         @Override
         protected void onPostExecute(ArrayList<SNoticeData> sNoticeDatas) {
-            SHomeMailAdapter adapter = new SHomeMailAdapter(sNoticeDatas);
+            SNoticeAdapter adapter = new SNoticeAdapter(sNoticeDatas);
             listView.setAdapter(adapter);
         }
     }

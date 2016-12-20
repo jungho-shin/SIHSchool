@@ -8,4 +8,6 @@
     <color name="menu_unfocused_bg">#FFFFFF</color>
     <color name="menu_focused_text_color">#FF4200</color>
     <color name="menu_unfocused_text_color">#464646</color>
+
+    <color name="list_item_notice_index_color">#464646</color>
 </resources>
