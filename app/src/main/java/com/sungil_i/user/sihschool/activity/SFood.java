@@ -24,12 +24,17 @@ public class SFood extends CommonActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setCurrentMenu(Menus.MENU_FOOD);
         setContentView(R.layout.activity_notice);
 
         listView = (ListView) findViewById(R.id.listview);
 
         new FoodTask().execute();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setCurrentMenu(Menus.MENU_FOOD);
     }
 
     class FoodTask extends AsyncTask<Void, Void, ArrayList<SNoticeData>> {

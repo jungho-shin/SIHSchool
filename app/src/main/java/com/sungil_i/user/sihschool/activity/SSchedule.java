@@ -25,12 +25,17 @@ public class SSchedule extends CommonActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setCurrentMenu(Menus.MENU_SCHEDULE);
         setContentView(R.layout.activity_schedule);
 
         calendarView = (CalendarView) findViewById(R.id.calendarView);
 
         new ScheduleTask().execute();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setCurrentMenu(Menus.MENU_SCHEDULE);
     }
 
     class ScheduleTask extends AsyncTask<Void, Void, ArrayList<SScheduleData>> {

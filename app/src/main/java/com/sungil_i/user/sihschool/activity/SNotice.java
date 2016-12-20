@@ -24,12 +24,17 @@ public class SNotice extends CommonActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setCurrentMenu(Menus.MENU_NOTICE);
         setContentView(R.layout.activity_notice);
 
         listView = (ListView) findViewById(R.id.listview);
 
         new NoticeTask().execute();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setCurrentMenu(Menus.MENU_NOTICE);
     }
 
     class NoticeTask extends AsyncTask<Void, Void, ArrayList<SNoticeData>> {

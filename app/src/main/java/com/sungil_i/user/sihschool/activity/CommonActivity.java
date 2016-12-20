@@ -2,6 +2,8 @@ package com.sungil_i.user.sihschool.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -17,6 +19,11 @@ public class CommonActivity extends AppCompatActivity implements OnMenuClickList
 
     private Menus menus;
     private int currentMenu;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     protected void onStart() {
@@ -67,6 +74,7 @@ public class CommonActivity extends AppCompatActivity implements OnMenuClickList
     }
 
     public void setCurrentMenu(int menuType) {
-        this.currentMenu = menuType;
+        currentMenu = menuType;
+        menus.setFocusableInTouchMode(menuType);
     }
 }

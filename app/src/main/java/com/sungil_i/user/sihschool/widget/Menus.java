@@ -76,35 +76,83 @@ public class Menus extends LinearLayout implements View.OnClickListener {
         onMenuClickListener = listener;
     }
 
+    public void setFocusableInTouchMode(int menuType) {
+        switch (menuType) {
+            case MENU_NOTICE:
+                btn_notice.setFocusableInTouchMode(true);
+                btn_notice.requestFocus();
+                break;
+            case MENU_SCHEDULE:
+                btn_schedule.setFocusableInTouchMode(true);
+                btn_schedule.requestFocus();
+                break;
+            case MENU_FOOD:
+                btn_food.setFocusableInTouchMode(true);
+                btn_food.requestFocus();
+                break;
+            case MENU_HOME:
+                btn_home.setFocusableInTouchMode(true);
+                btn_home.requestFocus();
+                break;
+            case MENU_JOB:
+                btn_job.setFocusableInTouchMode(true);
+                btn_job.requestFocus();
+                break;
+            case MENU_EMPLOYEE_NEWS:
+                btn_employee_news.setFocusableInTouchMode(true);
+                btn_employee_news.requestFocus();
+                break;
+        }
+    }
+
     @Override
     public void onClick(View v) {
+        Log.d("TEST", ">>>>> on menu clicked");
         switch (v.getId()) {
             case R.id.btn_notice:
+                btn_notice.setFocusableInTouchMode(true);
+                btn_notice.requestFocus();
+                btn_notice.setFocusableInTouchMode(false);
                 if(onMenuClickListener != null) {
                     onMenuClickListener.onMenuClicked(MENU_NOTICE);
                 }
                 break;
             case R.id.btn_schedule:
+                btn_schedule.setFocusableInTouchMode(true);
+                btn_schedule.requestFocus();
+                btn_schedule.setFocusableInTouchMode(false);
                 if(onMenuClickListener != null) {
                     onMenuClickListener.onMenuClicked(MENU_SCHEDULE);
                 }
                 break;
             case R.id.btn_food:
+                btn_food.setFocusableInTouchMode(true);
+                btn_food.requestFocus();
+                btn_food.setFocusableInTouchMode(false);
                 if(onMenuClickListener != null) {
                     onMenuClickListener.onMenuClicked(MENU_FOOD);
                 }
                 break;
             case R.id.btn_home:
+                btn_home.setFocusableInTouchMode(true);
+                btn_home.requestFocus();
+                btn_home.setFocusableInTouchMode(false);
                 if(onMenuClickListener != null) {
                     onMenuClickListener.onMenuClicked(MENU_HOME);
                 }
                 break;
             case R.id.btn_job:
+                btn_job.setFocusableInTouchMode(true);
+                btn_job.requestFocus();
+                btn_job.setFocusableInTouchMode(false);
                 if(onMenuClickListener != null) {
                     onMenuClickListener.onMenuClicked(MENU_JOB);
                 }
                 break;
             case R.id.btn_employee_news:
+                btn_employee_news.setFocusableInTouchMode(true);
+                btn_employee_news.requestFocus();
+                btn_employee_news.setFocusableInTouchMode(false);
                 if(onMenuClickListener != null) {
                     onMenuClickListener.onMenuClicked(MENU_EMPLOYEE_NEWS);
                 }

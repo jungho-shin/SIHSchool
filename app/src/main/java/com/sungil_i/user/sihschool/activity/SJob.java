@@ -24,12 +24,17 @@ public class SJob extends CommonActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setCurrentMenu(Menus.MENU_JOB);
         setContentView(R.layout.activity_notice);
 
         listView = (ListView) findViewById(R.id.listview);
 
         new JobTask().execute();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setCurrentMenu(Menus.MENU_JOB);
     }
 
     class JobTask extends AsyncTask<Void, Void, ArrayList<SNoticeData>> {

@@ -23,12 +23,17 @@ public class SHomeMail extends CommonActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setCurrentMenu(Menus.MENU_HOME);
         setContentView(R.layout.activity_notice);
 
         listView = (ListView) findViewById(R.id.listview);
 
         new HomeMailTask().execute();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setCurrentMenu(Menus.MENU_HOME);
     }
 
     class HomeMailTask extends AsyncTask<Void, Void, ArrayList<SNoticeData>>{
