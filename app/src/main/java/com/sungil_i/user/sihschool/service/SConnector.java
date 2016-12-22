@@ -363,7 +363,35 @@ public class SConnector {
 
         ArrayList<SNoticeData> employeesNews = new ArrayList<SNoticeData>();
 
-        // TAOS_TODO
+        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/employees");
+
+        if(datas != null) {
+
+            for(int i = 0; i < datas.length(); i++) {
+
+                JSONObject data = null;
+
+                try {
+
+                    data = (JSONObject) datas.get(i);
+
+                    SNoticeData notice = new SNoticeData();
+                    notice.setIndex(data.getString("번호"));
+                    notice.setAttachment(data.getString("첨부"));
+                    notice.setTitle(data.getString("제목"));
+                    notice.setName(data.getString("이름"));
+                    notice.setDate(data.getString("날짜"));
+                    notice.setHit(data.getInt("조회"));
+
+                    employeesNews.add(notice);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        }
 
         return employeesNews;
 
