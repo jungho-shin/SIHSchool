@@ -10,4 +10,5 @@
     <color name="menu_unfocused_text_color">#464646</color>
 
     <color name="list_item_notice_index_color">#464646</color>
+    <color name="devider_color">#C0C0C0</color>
 </resources>

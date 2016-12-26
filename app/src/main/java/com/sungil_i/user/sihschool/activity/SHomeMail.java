@@ -1,7 +1,10 @@
 package com.sungil_i.user.sihschool.activity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.sungil_i.user.sihschool.R;
@@ -46,6 +49,15 @@ public class SHomeMail extends CommonActivity {
         protected void onPostExecute(ArrayList<SNoticeData> sNoticeDatas) {
             SNoticeAdapter adapter = new SNoticeAdapter(sNoticeDatas);
             listView.setAdapter(adapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(SHomeMail.this, SNoticeDetail.class);
+                    intent.putExtra("index", position);
+                    startActivity(intent);
+                }
+            });
+
         }
     }
 }

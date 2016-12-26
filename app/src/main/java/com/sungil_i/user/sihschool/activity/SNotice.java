@@ -1,9 +1,14 @@
 package com.sungil_i.user.sihschool.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.sungil_i.user.sihschool.R;
 import com.sungil_i.user.sihschool.adapter.SNoticeAdapter;
@@ -50,6 +55,14 @@ public class SNotice extends CommonActivity {
 
             SNoticeAdapter adapter = new SNoticeAdapter(datas);
             listView.setAdapter(adapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(SNotice.this, SNoticeDetail.class);
+                    intent.putExtra("index", position);
+                    startActivity(intent);
+                }
+            });
 
         }
     }

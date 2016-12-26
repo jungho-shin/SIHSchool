@@ -18,7 +18,7 @@ import com.sungil_i.user.sihschool.widget.OnMenuClickListener;
 public class CommonActivity extends AppCompatActivity implements OnMenuClickListener {
 
     private Menus menus;
-    private int currentMenu;
+    private static int currentMenu;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,5 +76,9 @@ public class CommonActivity extends AppCompatActivity implements OnMenuClickList
     public void setCurrentMenu(int menuType) {
         currentMenu = menuType;
         menus.setFocusableInTouchMode(menuType);
+    }
+
+    public int getCurrentMenu() {
+        return currentMenu;
     }
 }

@@ -76,6 +76,56 @@ public class SConnector {
 
     }
 
+    private JSONObject requestDetail(String strUrl) {
+
+        Log.d("TEST", "strUrl : " + strUrl);
+
+        JSONObject jsonObject = null;
+
+        try {
+
+            URL url = new URL(strUrl);
+
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
+//            urlConnection.setDoOutput(false);
+            urlConnection.setDoInput(true);
+            urlConnection.setUseCaches(false);
+            urlConnection.setDefaultUseCaches(false);
+
+            urlConnection.connect();
+
+            InputStream is = urlConnection.getInputStream();
+
+            StringBuilder builder = new StringBuilder();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+
+            String line;
+            while((line = reader.readLine()) != null) {
+                builder.append(line + "\n");
+                Log.d("TEST", line);
+            }
+
+            jsonObject = new JSONObject(builder.toString());
+
+        } catch (MalformedURLException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+
+        }
+
+        return jsonObject;
+
+    }
+
     private SScheduleData convertStrToScheduleData(String str) {
         SScheduleData data = null;
 
@@ -97,18 +147,9 @@ public class SConnector {
         return data;
     }
 
-    /**
-     *
-     * 공지 : 열린마당 > 공지사항
-     *
-     * @manager : 석성희
-     * @return
-     */
-    public ArrayList<SNoticeData> getNotices() {
+    private ArrayList<SNoticeData> parseNotices(JSONArray datas) {
 
         ArrayList<SNoticeData> notices = new ArrayList<SNoticeData>();
-
-        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/notices");
 
         if(datas != null) {
 
@@ -141,9 +182,50 @@ public class SConnector {
 
     }
 
+    private SNoticeData parseNotice(JSONObject data) {
+
+        SNoticeData notice = new SNoticeData();
+
+        if(data != null) {
+            try {
+                notice.setTitle(data.getString("제목"));
+                notice.setName(data.getString("이름"));
+                notice.setHit(data.getInt("조회수"));
+                notice.setDate(data.getString("등록일"));
+                notice.setContent(data.getString("내용"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return notice;
+
+    }
+
     /**
      *
-     * 일정 : 학교생활/학사 > 학사일정
+     * 공지목록 : 열린마당 > 공지사항
+     *
+     * @manager : 석성희
+     * @return
+     */
+    public ArrayList<SNoticeData> getNotices() {
+        return parseNotices(request(Const.API_DOMAIN + Const.API_PORT + "/notices"));
+    }
+
+    /**
+     *
+     * 공지상세 : 열린마당 > 공지사항 > 공지상세
+     *
+     * @manager : 석성희
+     * @return
+     */
+    public SNoticeData getNotice(int id) {
+        return parseNotice(requestDetail(Const.API_DOMAIN + Const.API_PORT + "/notice/" + id));
+    }
+    /**
+     *
+     * 일정목록 : 학교생활/학사 > 학사일정
      *
      * @manager : 안용찬
      * @return
@@ -224,7 +306,7 @@ public class SConnector {
 
     /**
      *
-     * 급식 : 학교생활/학사 > 급식 > 오늘의 식단
+     * 급식목록 : 학교생활/학사 > 급식 > 오늘의 식단
      *
      * @manager : 양희석
      * @return
@@ -266,136 +348,75 @@ public class SConnector {
 
     }
 
+
     /**
      *
-     * 가정통신문 : 학교생활/학사 > 가정통신문
+     * 가정통신문목록 : 학교생활/학사 > 가정통신문
      *
      * @manager : 박현기
      * @return
      */
     public ArrayList<SNoticeData> getHomes() {
-
-        ArrayList<SNoticeData> homes = new ArrayList<SNoticeData>();
-
-        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/homes");
-
-        for(int i = 0; i < datas.length(); i++) {
-
-            JSONObject data = null;
-
-            try {
-
-                data = (JSONObject) datas.get(i);
-
-                SNoticeData notice = new SNoticeData();
-                notice.setIndex(data.getString("번호"));
-                notice.setAttachment(data.getString("첨부"));
-                notice.setTitle(data.getString("제목"));
-                notice.setName(data.getString("이름"));
-                notice.setDate(data.getString("날짜"));
-                notice.setHit(data.getInt("조회"));
-
-                homes.add(notice);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-        return homes;
-
+        return parseNotices(request(Const.API_DOMAIN + Const.API_PORT + "/homes"));
     }
 
     /**
      *
-     * 취업 : 취업 > 취업새소식
+     * 가정통신문상세 : 학교생활/학사 > 가정통신문 > 가정통신문상세
+     *
+     * @manager : 박현기
+     * @return
+     */
+    public SNoticeData getHome(int id) {
+        return parseNotice(requestDetail(Const.API_DOMAIN + Const.API_PORT + "/home/" + id));
+    }
+
+
+    /**
+     *
+     * 취업목록 : 취업 > 취업새소식
      *
      * @manager : 강찬
      * @return
      */
     public ArrayList<SNoticeData> getJobs() {
-
-        ArrayList<SNoticeData> jobs = new ArrayList<SNoticeData>();
-
-        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/jobs");
-
-        if(datas != null) {
-
-            for(int i = 0; i < datas.length(); i++) {
-
-                JSONObject data = null;
-
-                try {
-
-                    data = (JSONObject) datas.get(i);
-
-                    SNoticeData notice = new SNoticeData();
-                    notice.setIndex(data.getString("번호"));
-                    notice.setAttachment(data.getString("첨부"));
-                    notice.setTitle(data.getString("제목"));
-                    notice.setName(data.getString("이름"));
-                    notice.setDate(data.getString("날짜"));
-                    notice.setHit(data.getInt("조회"));
-
-                    jobs.add(notice);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-        }
-
-        return jobs;
-
+        return parseNotices(request(Const.API_DOMAIN + Const.API_PORT + "/jobs"));
     }
 
     /**
      *
-     * 취업자소식 : 취업 > 취업박람회
+     * 취업상세 : 취업 > 취업새소식 > 취업상세
+     *
+     * @manager : 강찬
+     * @return
+     */
+    public SNoticeData getJob(int id) {
+        return parseNotice(requestDetail(Const.API_DOMAIN + Const.API_PORT + "/job/" + id));
+    }
+
+
+    /**
+     *
+     * 취업자목록 : 취업 > 합격자안내
      *
      * @manager : 신정호
      * @return
      */
     public ArrayList<SNoticeData> getEmployeesNews() {
-
-        ArrayList<SNoticeData> employeesNews = new ArrayList<SNoticeData>();
-
-        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/employees");
-
-        if(datas != null) {
-
-            for(int i = 0; i < datas.length(); i++) {
-
-                JSONObject data = null;
-
-                try {
-
-                    data = (JSONObject) datas.get(i);
-
-                    SNoticeData notice = new SNoticeData();
-                    notice.setIndex(data.getString("번호"));
-                    notice.setAttachment(data.getString("첨부"));
-                    notice.setTitle(data.getString("제목"));
-                    notice.setName(data.getString("이름"));
-                    notice.setDate(data.getString("날짜"));
-                    notice.setHit(data.getInt("조회"));
-
-                    employeesNews.add(notice);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-        }
-
-        return employeesNews;
-
+        return parseNotices(request(Const.API_DOMAIN + Const.API_PORT + "/employees"));
     }
+
+    /**
+     *
+     * 취업자상세 : 취업 > 합격자안내 > 취업자상세
+     *
+     * @manager : 신정호
+     * @return
+     */
+    public SNoticeData getEmployeeNews(int id) {
+        return parseNotice(requestDetail(Const.API_DOMAIN + Const.API_PORT + "/employee/" + id));
+    }
+
 
     public ArrayList<SNoticeData> getQnas() {
 

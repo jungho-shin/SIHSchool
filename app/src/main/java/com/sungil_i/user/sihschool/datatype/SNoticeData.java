@@ -11,6 +11,7 @@ public class SNoticeData {
     private String title;
     private String name;
     private String date;
+    private String content;
     private int hit;
 
     public String getIndex() {
@@ -51,6 +52,14 @@ public class SNoticeData {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public int getHit() {
