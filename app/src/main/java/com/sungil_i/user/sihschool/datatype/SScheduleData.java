@@ -14,6 +14,9 @@ public class SScheduleData {
     }
 
     public void setDate(String date) {
+        if(date.length() == 1) {
+            date = "0" + date;
+        }
         this.date = date;
     }
 
