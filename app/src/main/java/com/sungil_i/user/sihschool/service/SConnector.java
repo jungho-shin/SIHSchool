@@ -3,6 +3,7 @@ package com.sungil_i.user.sihschool.service;
 import android.util.Log;
 
 import com.sungil_i.user.sihschool.common.Const;
+import com.sungil_i.user.sihschool.datatype.SFoodData;
 import com.sungil_i.user.sihschool.datatype.SGalleryData;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.datatype.SScheduleData;
@@ -145,6 +146,38 @@ public class SConnector {
         }
 
         return data;
+    }
+
+    private ArrayList<SFoodData> parseFood(JSONArray datas) {
+
+        ArrayList<SFoodData> foods = new ArrayList<SFoodData>();
+
+        if(datas != null) {
+
+            for(int i = 0; i < datas.length(); i++) {
+
+                JSONObject data = null;
+
+                try {
+                    data = (JSONObject) datas.get(i);
+
+                    SFoodData food = new SFoodData();
+                    food.setTitle(data.getString("title"));
+                    food.setPhotoUrl(data.getString("photoUrl"));
+                    food.setMenu(data.getString("menu"));
+
+                    foods.add(food);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        }
+
+        return foods;
+
     }
 
     private ArrayList<SNoticeData> parseNotices(JSONArray datas) {
@@ -311,41 +344,8 @@ public class SConnector {
      * @manager : 양희석
      * @return
      */
-    public ArrayList<SNoticeData> getFoods() {
-
-        ArrayList<SNoticeData> foods = new ArrayList<SNoticeData>();
-
-        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/foods");
-
-        if(datas != null) {
-
-            for(int i = 0; i < datas.length(); i++) {
-
-                JSONObject data = null;
-
-                try {
-
-                    data = (JSONObject) datas.get(i);
-
-                    SNoticeData notice = new SNoticeData();
-                    notice.setIndex(data.getString("번호"));
-                    notice.setAttachment(data.getString("첨부"));
-                    notice.setTitle(data.getString("제목"));
-                    notice.setName(data.getString("이름"));
-                    notice.setDate(data.getString("날짜"));
-                    notice.setHit(data.getInt("조회"));
-
-                    foods.add(notice);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }
-
-        return foods;
-
+    public ArrayList<SFoodData> getFood() {
+        return parseFood(request(Const.API_DOMAIN + Const.API_PORT + "/food"));
     }
 
 
