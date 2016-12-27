@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CalendarView;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mustafaferhan.MFCalendarView;
@@ -26,7 +28,10 @@ import java.util.ArrayList;
 public class SSchedule extends CommonActivity {
 
     MFCalendarView mf;
-    String yyyymm;
+    TextView tv_content;
+
+    String[] dates;
+    ArrayList<SScheduleData> schedules;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,8 @@ public class SSchedule extends CommonActivity {
             @Override
             public void onDateChanged(String date) {
                 Toast.makeText(SSchedule.this, "onDateChanged : " + date, Toast.LENGTH_LONG).show();
+                dates = date.split("-");
+                showSchedule();
             }
 
             @Override
@@ -46,7 +53,9 @@ public class SSchedule extends CommonActivity {
             }
         });
 
-        yyyymm = mf.getSelectedDate().substring(0, 7);
+        tv_content = (TextView) findViewById(R.id.tv_content);
+
+        dates = mf.getSelectedDate().split("-");
 
         new ScheduleTask().execute();
     }
@@ -55,6 +64,23 @@ public class SSchedule extends CommonActivity {
     protected void onResume() {
         super.onResume();
         setCurrentMenu(Menus.MENU_SCHEDULE);
+    }
+
+    private void showSchedule() {
+
+        for(int i = 0; i < schedules.size(); i++) {
+            SScheduleData schedule = schedules.get(i);
+            Log.d("TEST", "date1 : " + schedule.getDate() + " date2 : " + dates[2]);
+            if(schedule.getDate().equals(dates[2])) {
+                if(schedule.getTitle().equals("")) {
+                    tv_content.setText("등록된 일정이 없습니다.");
+                } else {
+                    tv_content.setText(schedule.getTitle());
+                }
+                break;
+            }
+        }
+
     }
 
     class ScheduleTask extends AsyncTask<Void, Void, ArrayList<SScheduleData>> {
@@ -67,15 +93,18 @@ public class SSchedule extends CommonActivity {
         @Override
         protected void onPostExecute(ArrayList<SScheduleData> datas) {
 
+            schedules = datas;
             ArrayList<String> eventDays = new ArrayList<String>();
 
             for(int i = 0; i < datas.size(); i++) {
                 if(!datas.get(i).getTitle().equals("")) {
-                    eventDays.add(yyyymm + "-" + datas.get(i).getDate());
+                    eventDays.add(dates[0] + "-" + dates[1] + "-" + datas.get(i).getDate());
                 }
             }
 
             mf.setEvents(eventDays);
+
+            showSchedule();
 
         }
     }
