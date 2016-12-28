@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.sungil_i.user.sihschool.common.Const;
 import com.sungil_i.user.sihschool.datatype.SFoodData;
-import com.sungil_i.user.sihschool.datatype.SGalleryData;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.datatype.SScheduleData;
 
@@ -425,13 +424,4 @@ public class SConnector {
         return qnas;
 
     }
-
-    public ArrayList<SGalleryData> getPhotos() {
-
-        ArrayList<SGalleryData> photos = new ArrayList<SGalleryData>();
-
-        return photos;
-
-    }
-
 }

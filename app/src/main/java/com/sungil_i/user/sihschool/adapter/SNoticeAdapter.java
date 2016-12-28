@@ -10,8 +10,6 @@ import android.widget.TextView;
 import com.sungil_i.user.sihschool.R;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 /**

@@ -9,9 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sungil_i.user.sihschool.R;
-import com.sungil_i.user.sihschool.activity.SFood;
 import com.sungil_i.user.sihschool.datatype.SFoodData;
-import com.sungil_i.user.sihschool.datatype.SNoticeData;
 
 import java.util.ArrayList;
 

@@ -1,20 +1,13 @@
 package com.sungil_i.user.sihschool.activity;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.CalendarView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mustafaferhan.MFCalendarView;
-import com.mustafaferhan.Util;
 import com.mustafaferhan.onMFCalendarViewListener;
 import com.sungil_i.user.sihschool.R;
-import com.sungil_i.user.sihschool.adapter.SNoticeAdapter;
-import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.datatype.SScheduleData;
 import com.sungil_i.user.sihschool.service.SConnector;
 import com.sungil_i.user.sihschool.widget.Menus;
@@ -69,8 +62,9 @@ public class SSchedule extends CommonActivity {
     private void showSchedule() {
 
         for(int i = 0; i < schedules.size(); i++) {
+
             SScheduleData schedule = schedules.get(i);
-            Log.d("TEST", "date1 : " + schedule.getDate() + " date2 : " + dates[2]);
+
             if(schedule.getDate().equals(dates[2])) {
                 if(schedule.getTitle().equals("")) {
                     tv_content.setText("등록된 일정이 없습니다.");
@@ -79,6 +73,7 @@ public class SSchedule extends CommonActivity {
                 }
                 break;
             }
+
         }
 
     }

@@ -3,16 +3,12 @@ package com.sungil_i.user.sihschool.activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.sungil_i.user.sihschool.R;
-import com.sungil_i.user.sihschool.adapter.SNoticeAdapter;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.service.SConnector;
 import com.sungil_i.user.sihschool.widget.Menus;
-
-import java.util.ArrayList;
 
 /**
  * Created by user on 2016-11-08.
