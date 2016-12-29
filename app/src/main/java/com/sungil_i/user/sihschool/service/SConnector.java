@@ -26,37 +26,32 @@ import java.util.ArrayList;
 
 public class SConnector {
 
-    private JSONArray request(String strUrl) {
+    private String request(String strUrl) {
 
-        Log.d("TEST", "strUrl : " + strUrl);
-
-        JSONArray jsonArray = null;
+        URL url = null;
+        HttpURLConnection urlConnection = null;
+        InputStream is = null;
+        StringBuilder builder = new StringBuilder();
+        BufferedReader reader = null;
 
         try {
 
-            URL url = new URL(strUrl);
+            url = new URL(strUrl);
 
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
-//            urlConnection.setDoOutput(false);
             urlConnection.setDoInput(true);
             urlConnection.setUseCaches(false);
             urlConnection.setDefaultUseCaches(false);
-
             urlConnection.connect();
 
-            InputStream is = urlConnection.getInputStream();
-
-            StringBuilder builder = new StringBuilder();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            is = urlConnection.getInputStream();
+            reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 
             String line;
             while((line = reader.readLine()) != null) {
                 builder.append(line + "\n");
-                Log.d("TEST", line);
             }
-
-            jsonArray = new JSONArray(builder.toString());
 
         } catch (MalformedURLException e) {
 
@@ -66,63 +61,9 @@ public class SConnector {
 
             e.printStackTrace();
 
-        } catch (JSONException e) {
-
-            e.printStackTrace();
-
         }
 
-        return jsonArray;
-
-    }
-
-    private JSONObject requestDetail(String strUrl) {
-
-        Log.d("TEST", "strUrl : " + strUrl);
-
-        JSONObject jsonObject = null;
-
-        try {
-
-            URL url = new URL(strUrl);
-
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
-//            urlConnection.setDoOutput(false);
-            urlConnection.setDoInput(true);
-            urlConnection.setUseCaches(false);
-            urlConnection.setDefaultUseCaches(false);
-
-            urlConnection.connect();
-
-            InputStream is = urlConnection.getInputStream();
-
-            StringBuilder builder = new StringBuilder();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-
-            String line;
-            while((line = reader.readLine()) != null) {
-                builder.append(line + "\n");
-                Log.d("TEST", line);
-            }
-
-            jsonObject = new JSONObject(builder.toString());
-
-        } catch (MalformedURLException e) {
-
-            e.printStackTrace();
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        } catch (JSONException e) {
-
-            e.printStackTrace();
-
-        }
-
-        return jsonObject;
+        return builder.toString();
 
     }
 
@@ -242,7 +183,13 @@ public class SConnector {
      * @return
      */
     public ArrayList<SNoticeData> getNotices() {
-        return parseNotices(request(Const.API_DOMAIN + Const.API_PORT + "/notices"));
+        JSONArray data = null;
+        try {
+            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/notices"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return parseNotices(data);
     }
 
     /**
@@ -253,7 +200,13 @@ public class SConnector {
      * @return
      */
     public SNoticeData getNotice(int id) {
-        return parseNotice(requestDetail(Const.API_DOMAIN + Const.API_PORT + "/notice/" + id));
+        JSONObject data = null;
+        try {
+            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/notice/" + id));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return parseNotice(data);
     }
     /**
      *
@@ -266,7 +219,12 @@ public class SConnector {
 
         ArrayList<SScheduleData> schedules = new ArrayList<SScheduleData>();
 
-        JSONArray datas = request(Const.API_DOMAIN + Const.API_PORT + "/schedules");
+        JSONArray datas = null;
+        try {
+            datas = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/schedules"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         if(datas != null) {
 
@@ -344,7 +302,13 @@ public class SConnector {
      * @return
      */
     public ArrayList<SFoodData> getFood() {
-        return parseFood(request(Const.API_DOMAIN + Const.API_PORT + "/food"));
+        JSONArray data = null;
+        try {
+            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/food"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return parseFood(data);
     }
 
 
@@ -356,7 +320,13 @@ public class SConnector {
      * @return
      */
     public ArrayList<SNoticeData> getHomes() {
-        return parseNotices(request(Const.API_DOMAIN + Const.API_PORT + "/homes"));
+        JSONArray data = null;
+        try {
+            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/homes"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return parseNotices(data);
     }
 
     /**
@@ -367,7 +337,13 @@ public class SConnector {
      * @return
      */
     public SNoticeData getHome(int id) {
-        return parseNotice(requestDetail(Const.API_DOMAIN + Const.API_PORT + "/home/" + id));
+        JSONObject data = null;
+        try {
+            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/home/" + id));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return parseNotice(data);
     }
 
 
@@ -379,7 +355,13 @@ public class SConnector {
      * @return
      */
     public ArrayList<SNoticeData> getJobs() {
-        return parseNotices(request(Const.API_DOMAIN + Const.API_PORT + "/jobs"));
+        JSONArray data = null;
+        try {
+            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/jobs"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return parseNotices(data);
     }
 
     /**
@@ -390,7 +372,13 @@ public class SConnector {
      * @return
      */
     public SNoticeData getJob(int id) {
-        return parseNotice(requestDetail(Const.API_DOMAIN + Const.API_PORT + "/job/" + id));
+        JSONObject data = null;
+        try {
+            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/job/" + id));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return parseNotice(data);
     }
 
 
@@ -402,7 +390,13 @@ public class SConnector {
      * @return
      */
     public ArrayList<SNoticeData> getEmployeesNews() {
-        return parseNotices(request(Const.API_DOMAIN + Const.API_PORT + "/employees"));
+        JSONArray data = null;
+        try {
+            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/employees"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return parseNotices(data);
     }
 
     /**
@@ -413,15 +407,13 @@ public class SConnector {
      * @return
      */
     public SNoticeData getEmployeeNews(int id) {
-        return parseNotice(requestDetail(Const.API_DOMAIN + Const.API_PORT + "/employee/" + id));
+        JSONObject data = null;
+        try {
+            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/employee/" + id));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return parseNotice(data);
     }
 
-
-    public ArrayList<SNoticeData> getQnas() {
-
-        ArrayList<SNoticeData> qnas = new ArrayList<SNoticeData>();
-
-        return qnas;
-
-    }
 }
