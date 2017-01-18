@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -26,10 +27,11 @@ import java.util.ArrayList;
 
 public class SConnector {
 
-    private String request(String strUrl) {
+    private String request(String strUrl, JSONObject object) {
 
         URL url = null;
         HttpURLConnection urlConnection = null;
+        OutputStream os = null;
         InputStream is = null;
         StringBuilder builder = new StringBuilder();
         BufferedReader reader = null;
@@ -39,11 +41,20 @@ public class SConnector {
             url = new URL(strUrl);
 
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
+            urlConnection.setRequestProperty("Content-Type", "application/json");
+            urlConnection.setRequestProperty("Accept", "application/json");
+            urlConnection.setRequestMethod("POST");
+            urlConnection.setDoOutput(true);
             urlConnection.setDoInput(true);
             urlConnection.setUseCaches(false);
             urlConnection.setDefaultUseCaches(false);
             urlConnection.connect();
+
+            if(object != null) {
+                os = urlConnection.getOutputStream();
+                os.write(object.toString().getBytes());
+                os.flush();
+            }
 
             is = urlConnection.getInputStream();
             reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -62,6 +73,8 @@ public class SConnector {
             e.printStackTrace();
 
         }
+
+        Log.d("TEST", "result : " + builder.toString());
 
         return builder.toString();
 
@@ -185,7 +198,7 @@ public class SConnector {
     public ArrayList<SNoticeData> getNotices() {
         JSONArray data = null;
         try {
-            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/notices"));
+            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/notices", null));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -202,7 +215,7 @@ public class SConnector {
     public SNoticeData getNotice(int id) {
         JSONObject data = null;
         try {
-            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/notice/" + id));
+            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/notice/" + id, null));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -215,16 +228,26 @@ public class SConnector {
      * @manager : 안용찬
      * @return
      */
-    public ArrayList<SScheduleData> getSchedules() {
+    public ArrayList<SScheduleData> getSchedules(String searchYear, String searchMonth) {
 
-        ArrayList<SScheduleData> schedules = new ArrayList<SScheduleData>();
-
-        JSONArray datas = null;
+        JSONObject reqData = new JSONObject();
         try {
-            datas = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/schedules"));
+            reqData.put("SearchYear", searchYear);
+            reqData.put("SearchMonth", searchMonth);
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        JSONArray datas = null;
+        try {
+            datas = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/schedules", reqData));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
+        ArrayList<SScheduleData> schedules = new ArrayList<SScheduleData>();
 
         if(datas != null) {
 
@@ -304,7 +327,7 @@ public class SConnector {
     public ArrayList<SFoodData> getFood() {
         JSONArray data = null;
         try {
-            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/food"));
+            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/food", null));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -322,7 +345,7 @@ public class SConnector {
     public ArrayList<SNoticeData> getHomes() {
         JSONArray data = null;
         try {
-            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/homes"));
+            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/homes", null));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -339,7 +362,7 @@ public class SConnector {
     public SNoticeData getHome(int id) {
         JSONObject data = null;
         try {
-            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/home/" + id));
+            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/home/" + id, null));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -357,7 +380,7 @@ public class SConnector {
     public ArrayList<SNoticeData> getJobs() {
         JSONArray data = null;
         try {
-            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/jobs"));
+            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/jobs", null));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -374,7 +397,7 @@ public class SConnector {
     public SNoticeData getJob(int id) {
         JSONObject data = null;
         try {
-            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/job/" + id));
+            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/job/" + id, null));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -392,7 +415,7 @@ public class SConnector {
     public ArrayList<SNoticeData> getEmployeesNews() {
         JSONArray data = null;
         try {
-            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/employees"));
+            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/employees", null));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -409,7 +432,7 @@ public class SConnector {
     public SNoticeData getEmployeeNews(int id) {
         JSONObject data = null;
         try {
-            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/employee/" + id));
+            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/employee/" + id, null));
         } catch (JSONException e) {
             e.printStackTrace();
         }

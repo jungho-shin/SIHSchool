@@ -35,14 +35,19 @@ public class SSchedule extends CommonActivity {
         mf.setOnCalendarViewListener(new onMFCalendarViewListener() {
             @Override
             public void onDateChanged(String date) {
-                Toast.makeText(SSchedule.this, "onDateChanged : " + date, Toast.LENGTH_LONG).show();
                 dates = date.split("-");
                 showSchedule();
             }
 
             @Override
             public void onDisplayedMonthChanged(int month, int year, String monthStr) {
-                Toast.makeText(SSchedule.this, month + "." + year + "." + monthStr, Toast.LENGTH_LONG);
+                dates[0] = String.valueOf(year);
+                if(month < 10) {
+                    dates[1] = "0" + String.valueOf(month);
+                } else {
+                    dates[1] = String.valueOf(month);
+                }
+                new ScheduleTask().execute();
             }
         });
 
@@ -82,7 +87,7 @@ public class SSchedule extends CommonActivity {
 
         @Override
         protected ArrayList<SScheduleData> doInBackground(Void... params) {
-            return new SConnector().getSchedules();
+            return new SConnector().getSchedules(dates[0], dates[1]);
         }
 
         @Override
