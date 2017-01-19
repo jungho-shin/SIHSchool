@@ -3,6 +3,7 @@ package com.sungil_i.user.sihschool.service;
 import android.util.Log;
 
 import com.sungil_i.user.sihschool.common.Const;
+import com.sungil_i.user.sihschool.datatype.SDailyFoodsData;
 import com.sungil_i.user.sihschool.datatype.SFoodData;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.datatype.SScheduleData;
@@ -101,35 +102,34 @@ public class SConnector {
         return data;
     }
 
-    private ArrayList<SFoodData> parseFood(JSONArray datas) {
+    private SDailyFoodsData parseDailyFoods(JSONObject obj) {
 
-        ArrayList<SFoodData> foods = new ArrayList<SFoodData>();
+        SDailyFoodsData dailyFoods = new SDailyFoodsData();
+        ArrayList<SFoodData> datas = new ArrayList<SFoodData>();
 
-        if(datas != null) {
+        try {
+            dailyFoods.setTitle(obj.getString("h_title"));
 
-            for(int i = 0; i < datas.length(); i++) {
+            JSONArray foods = obj.getJSONArray("arr");
+            for(int i = 0; i < foods.length(); i++) {
 
-                JSONObject data = null;
-
-                try {
-                    data = (JSONObject) datas.get(i);
-
-                    SFoodData food = new SFoodData();
-                    food.setTitle(data.getString("title"));
-                    food.setPhotoUrl(data.getString("photoUrl"));
-                    food.setMenu(data.getString("menu"));
-
-                    foods.add(food);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                JSONObject food = (JSONObject) foods.get(i);
+                SFoodData data = new SFoodData();
+                data.setTitle(food.getString("title"));
+                data.setMenu(food.getString("menu"));
+                if(!data.getTitle().equals("식단 메뉴")) {
+                    data.setPhotoUrl(food.getString("photoUrl"));
                 }
 
+                datas.add(data);
             }
+            dailyFoods.setFoods(datas);
 
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
-        return foods;
+        return dailyFoods;
 
     }
 
@@ -324,14 +324,25 @@ public class SConnector {
      * @manager : 양희석
      * @return
      */
-    public ArrayList<SFoodData> getFood() {
-        JSONArray data = null;
+    public SDailyFoodsData getFood(String searchYear, String searchMonth, String searchDay) {
+
+        JSONObject reqData = new JSONObject();
         try {
-            data = new JSONArray(request(Const.API_DOMAIN + Const.API_PORT + "/food", null));
+            reqData.put("SearchYear", searchYear);
+            reqData.put("SearchMonth", searchMonth);
+            reqData.put("SearchDay", searchDay);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return parseFood(data);
+
+        JSONObject data = null;
+        try {
+            data = new JSONObject(request(Const.API_DOMAIN + Const.API_PORT + "/food", reqData));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return parseDailyFoods(data);
     }
 
 

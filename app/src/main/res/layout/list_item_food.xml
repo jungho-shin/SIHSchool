@@ -7,6 +7,7 @@
 
     <TextView
         android:text="TextView"
+        android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tv_title" />
@@ -16,7 +17,8 @@
         android:layout_height="wrap_content"
         app:srcCompat="@mipmap/ic_launcher"
         android:id="@+id/iv_photo"
-        android:visibility="invisible" />
+        android:visibility="gone"
+        />
 
     <TextView
         android:text="TextView"
