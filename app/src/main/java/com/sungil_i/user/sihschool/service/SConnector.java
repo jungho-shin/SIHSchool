@@ -3,6 +3,7 @@ package com.sungil_i.user.sihschool.service;
 import android.util.Log;
 
 import com.sungil_i.user.sihschool.common.Const;
+import com.sungil_i.user.sihschool.datatype.SAttachFileData;
 import com.sungil_i.user.sihschool.datatype.SDailyFoodsData;
 import com.sungil_i.user.sihschool.datatype.SFoodData;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
@@ -67,10 +68,12 @@ public class SConnector {
 
         } catch (MalformedURLException e) {
 
+            Log.d("TAOS1", e.getMessage());
             e.printStackTrace();
 
         } catch (IOException e) {
 
+            Log.d("TAOS2", e.getMessage());
             e.printStackTrace();
 
         }
@@ -179,6 +182,23 @@ public class SConnector {
                 notice.setHit(data.getInt("조회수"));
                 notice.setDate(data.getString("등록일"));
                 notice.setContent(data.getString("내용"));
+
+                if(!data.isNull("첨부파일 1")) {
+                    JSONObject obj = new JSONObject(data.getString("첨부파일 1"));
+                    SAttachFileData attachFile = new SAttachFileData();
+                    attachFile.setFileName(obj.getString("fileName"));
+                    attachFile.setUrl(obj.getString("url"));
+                    notice.setAttachFile1(attachFile);
+                }
+
+                if(!data.isNull("첨부파일 2")) {
+                    JSONObject obj = new JSONObject(data.getString("첨부파일 2"));
+                    SAttachFileData attachFile = new SAttachFileData();
+                    attachFile.setFileName(obj.getString("fileName"));
+                    attachFile.setUrl(obj.getString("url"));
+                    notice.setAttachFile2(attachFile);
+                }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

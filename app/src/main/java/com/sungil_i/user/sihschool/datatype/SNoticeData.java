@@ -12,6 +12,8 @@ public class SNoticeData {
     private String name;
     private String date;
     private String content;
+    private SAttachFileData attachFile1;
+    private SAttachFileData attachFile2;
     private int hit;
 
     public String getIndex() {
@@ -60,6 +62,22 @@ public class SNoticeData {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public SAttachFileData getAttachFile1() {
+        return attachFile1;
+    }
+
+    public void setAttachFile1(SAttachFileData attachFile1) {
+        this.attachFile1 = attachFile1;
+    }
+
+    public SAttachFileData getAttachFile2() {
+        return attachFile2;
+    }
+
+    public void setAttachFile2(SAttachFileData attachFile2) {
+        this.attachFile2 = attachFile2;
     }
 
     public int getHit() {

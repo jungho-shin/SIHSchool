@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SIHSchool</string>
+    <string name="app_name">성일정보고</string>
 
     <string name="menu_notice">공지</string>
     <string name="menu_schedule">일정</string>
@@ -13,4 +13,6 @@
     <string name="column_hits">조회수</string>
     <string name="column_date_create">등록일</string>
     <string name="column_content">내용</string>
+    <string name="column_attach_file1">첨부파일1</string>
+    <string name="column_attach_file2">첨부파일2</string>
 </resources>

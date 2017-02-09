@@ -171,6 +171,72 @@
                     android:layout_weight="1" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/devider_color"/>
+
+            <LinearLayout
+                android:id="@+id/ll_attach1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="17dp"
+                android:paddingTop="17dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:text="@string/column_attach_file1"
+                    android:textColor="@color/list_item_notice_index_color"
+                    android:textSize="15dp"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal" />
+
+                <TextView
+                    android:text="-"
+                    android:textColor="@color/list_item_notice_index_color"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_attachfile1"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/devider_color"/>
+
+            <LinearLayout
+                android:id="@+id/ll_attach2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="17dp"
+                android:paddingTop="17dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:text="@string/column_attach_file2"
+                    android:textColor="@color/list_item_notice_index_color"
+                    android:textSize="15dp"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal" />
+
+                <TextView
+                    android:text="-"
+                    android:textColor="@color/list_item_notice_index_color"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_attachfile2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>
