@@ -7,8 +7,8 @@ android {
         applicationId "com.sungil_i.user.sihschool"
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 12
+        versionName "1.2"
     }
     buildTypes {
         release {
