@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SIHSchool.iml" filepath="$PROJECT_DIR$/SIHSchool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ViewPagerLibrary/ViewPagerLibrary.iml" filepath="$PROJECT_DIR$/ViewPagerLibrary/ViewPagerLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/mFCalendarView/mFCalendarView.iml" filepath="$PROJECT_DIR$/mFCalendarView/mFCalendarView.iml" />
     </modules>

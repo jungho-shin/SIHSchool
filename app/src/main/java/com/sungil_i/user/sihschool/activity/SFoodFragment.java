@@ -1,10 +1,14 @@
 package com.sungil_i.user.sihschool.activity;
 
+
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.mustafaferhan.MFCalendarView;
 import com.mustafaferhan.onMFCalendarViewListener;
@@ -13,28 +17,28 @@ import com.sungil_i.user.sihschool.adapter.SFoodAdapter;
 import com.sungil_i.user.sihschool.datatype.SDailyFoodsData;
 import com.sungil_i.user.sihschool.datatype.SFoodData;
 import com.sungil_i.user.sihschool.service.SConnector;
-import com.sungil_i.user.sihschool.widget.Menus;
 
 import java.util.ArrayList;
 
 /**
- * Created by user on 2016-11-08.
+ * A simple {@link Fragment} subclass.
  */
-
-/*public class SFood extends CommonActivity {
-
+public class SFoodFragment extends Fragment {
     MFCalendarView mf;
     ListView listView;
-
     String[] dates;
     ArrayList<SFoodData> foods;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food);
+    public SFoodFragment() {
+        // Required empty public constructor
+    }
 
-        mf = (MFCalendarView) findViewById(R.id.mFCalendarView);
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_food, container, false);
+        mf = (MFCalendarView)view.findViewById(R.id.mFCalendarView);
         mf.setOnCalendarViewListener(new onMFCalendarViewListener() {
             @Override
             public void onDateChanged(String date) {
@@ -55,17 +59,18 @@ import java.util.ArrayList;
             }
         });
 
-        listView = (ListView) findViewById(R.id.listview);
+        listView = (ListView)view.findViewById(R.id.listview);
 
         dates = mf.getSelectedDate().split("-");
 
         new FoodTask().execute();
+        return view;
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
-        setCurrentMenu(Menus.MENU_FOOD);
+
     }
 
     class FoodTask extends AsyncTask<Void, Void, SDailyFoodsData> {
@@ -81,6 +86,7 @@ import java.util.ArrayList;
             SFoodAdapter adapter = new SFoodAdapter(data.getFoods());
             listView.setAdapter(adapter);
         }
+
+
     }
 }
-*/

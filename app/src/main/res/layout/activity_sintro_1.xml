@@ -10,9 +10,6 @@
     android:paddingRight="65dp"
     android:paddingBottom="60dp"
     tools:context="com.sungil_i.user.sihschool.activity.SIntro">
-
-    ro_1
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

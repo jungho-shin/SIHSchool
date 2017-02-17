@@ -1,1 +1,2 @@
 include ':app', ':mFCalendarView'
+include ':ViewPagerLibrary'

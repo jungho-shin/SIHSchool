@@ -1,46 +1,51 @@
 package com.sungil_i.user.sihschool.activity;
 
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.sungil_i.user.sihschool.R;
 import com.sungil_i.user.sihschool.adapter.SNoticeAdapter;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.service.SConnector;
-import com.sungil_i.user.sihschool.widget.Menus;
 
 import java.util.ArrayList;
 
 /**
- * Created by taos9938 on 2016. 12. 15..
+ * A simple {@link Fragment} subclass.
  */
-
-/*public class SEmployeesNews extends CommonActivity {
+public class SEmployeesNewsFragment extends Fragment {
 
     ListView listView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notice);
-
-        listView = (ListView) findViewById(R.id.listview);
-
-
-        new EmployeesNewsTask().execute();
+    public SEmployeesNewsFragment() {
+        // Required empty public constructor
     }
 
+
     @Override
-    protected void onResume() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_snotice, container, false);
+        listView = (ListView) view.findViewById(R.id.listview);
+
+        NewsTask newsTask = new NewsTask();
+        newsTask.execute();
+        return view;
+    }
+    @Override
+    public void onResume() {
         super.onResume();
-        setCurrentMenu(Menus.MENU_EMPLOYEE_NEWS);
     }
 
-    class EmployeesNewsTask extends AsyncTask<Void, Void, ArrayList<SNoticeData>>{
+    class NewsTask extends AsyncTask<Void, Void, ArrayList<SNoticeData>> {
 
 
         @Override
@@ -49,14 +54,14 @@ import java.util.ArrayList;
         }
 
         @Override
-        protected void onPostExecute(ArrayList<SNoticeData> sNoticeDatas) {
+        protected void onPostExecute(ArrayList<SNoticeData> datas) {
 
-            SNoticeAdapter adapter = new SNoticeAdapter(sNoticeDatas);
+            SNoticeAdapter adapter = new SNoticeAdapter(datas);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(SEmployeesNews.this, SNoticeDetail.class);
+                    Intent intent = new Intent(getActivity(), SNoticeDetail.class);
                     intent.putExtra("index", position);
                     startActivity(intent);
                 }
@@ -64,5 +69,5 @@ import java.util.ArrayList;
 
         }
     }
+
 }
-*/

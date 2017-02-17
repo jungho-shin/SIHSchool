@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * Created by phg54 on 2016-12-15.
  */
 
-public class SHomeMail extends CommonActivity {
+/**public class SHomeMail extends CommonActivity {
     ListView listView;
 
     @Override
@@ -55,9 +55,11 @@ public class SHomeMail extends CommonActivity {
                     Intent intent = new Intent(SHomeMail.this, SNoticeDetail.class);
                     intent.putExtra("index", position);
                     startActivity(intent);
+
                 }
             });
 
         }
     }
 }
+*/

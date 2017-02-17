@@ -43,22 +43,22 @@ public class CommonActivity extends AppCompatActivity implements OnMenuClickList
         Intent intent = null;
         switch (menuType) {
             case Menus.MENU_NOTICE:
-                intent = new Intent(this, SNotice.class);
+                intent = new Intent(this, SNoticeFragment.class);
                 break;
             case Menus.MENU_SCHEDULE:
-                intent = new Intent(this, SSchedule.class);
+                intent = new Intent(this, SScheduleFragment.class);
                 break;
-            case Menus.MENU_FOOD:
-                intent = new Intent(this, SFood.class);
+           case Menus.MENU_FOOD:
+                intent = new Intent(this, SFoodFragment.class);
                 break;
             case Menus.MENU_HOME:
-                intent = new Intent(this, SHomeMail.class);
+                intent = new Intent(this, HomeMailFrament.class);
                 break;
             case Menus.MENU_JOB:
-                intent = new Intent(this, SJob.class);
+                intent = new Intent(this, SJobFragment.class);
                 break;
             case Menus.MENU_EMPLOYEE_NEWS:
-                intent = new Intent(this, SEmployeesNews.class);
+                intent = new Intent(this, SEmployeesNewsFragment.class);
                 break;
         }
 

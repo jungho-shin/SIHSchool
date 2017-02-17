@@ -1,44 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sungil_i.user.sihschool"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sungil_i.user.sihschool">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+
     <application
-        tools:replace="android:icon"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <activity
             android:name=".activity.SIntro"
             android:theme="@style/AppThemeNoTitle">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SNotice"
-            android:label="@string/menu_notice" />
-        <activity android:name=".activity.SNoticeDetail"
-            android:label="공지" />
-        <activity android:name=".activity.SSchedule"
-            android:label="@string/menu_schedule" />
-        <activity android:name=".activity.SFood"
-            android:label="@string/menu_food" />
-        <activity android:name=".activity.SHomeMail"
-            android:label="@string/menu_home" />
-        <activity android:name=".activity.SJob"
-            android:label="@string/menu_job" />
-        <activity android:name=".activity.SEmployeesNews"
-            android:label="@string/menu_employee_news" />
 
+        <activity
+            android:name=".activity.SNoticeDetail"
+            android:label="공지" />
+
+        <activity android:name=".activity.MainActivity"></activity>
     </application>
 
 </manifest>

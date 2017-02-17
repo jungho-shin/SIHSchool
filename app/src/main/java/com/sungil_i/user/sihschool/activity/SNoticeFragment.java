@@ -1,42 +1,51 @@
 package com.sungil_i.user.sihschool.activity;
 
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.sungil_i.user.sihschool.R;
 import com.sungil_i.user.sihschool.adapter.SNoticeAdapter;
 import com.sungil_i.user.sihschool.datatype.SNoticeData;
 import com.sungil_i.user.sihschool.service.SConnector;
-import com.sungil_i.user.sihschool.widget.Menus;
 
 import java.util.ArrayList;
 
 /**
- * Created by user on 2016-11-08.
+ * A simple {@link Fragment} subclass.
  */
-
-/**public class SNotice extends CommonActivity {
-
+public class SNoticeFragment extends Fragment {
     ListView listView;
+    TextView textView;
+
+    public SNoticeFragment() {
+        // Required empty public constructor
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notice);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the  for this fragment
+        View view = inflater.inflate(R.layout.fragment_snotice, container, false);
+        listView = (ListView) view.findViewById(R.id.listview);
+        NoticeTask noticeTask = new NoticeTask();
+        noticeTask.execute();
+        return view;
 
-        listView = (ListView) findViewById(R.id.listview);
-
-        new NoticeTask().execute();
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
-        setCurrentMenu(Menus.MENU_NOTICE);
     }
 
     class NoticeTask extends AsyncTask<Void, Void, ArrayList<SNoticeData>> {
@@ -55,7 +64,7 @@ import java.util.ArrayList;
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(SNotice.this, SNoticeDetail.class);
+                    Intent intent = new Intent(getActivity(), SNoticeDetail.class);
                     intent.putExtra("index", position);
                     startActivity(intent);
                 }
@@ -64,4 +73,3 @@ import java.util.ArrayList;
         }
     }
 }
-*/

@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * Created by user on 2016-11-08.
  */
 
-public class SJob extends CommonActivity {
+/**public class SJob extends CommonActivity {
 
     ListView listView;
 
@@ -63,4 +63,4 @@ public class SJob extends CommonActivity {
 
         }
     }
-}
+}*/

@@ -1,9 +1,13 @@
 package com.sungil_i.user.sihschool.activity;
 
+
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mustafaferhan.MFCalendarView;
 import com.mustafaferhan.onMFCalendarViewListener;
@@ -15,23 +19,26 @@ import com.sungil_i.user.sihschool.widget.Menus;
 import java.util.ArrayList;
 
 /**
- * Created by user on 2016-11-08.
+ * A simple {@link Fragment} subclass.
  */
-
-/*public class SSchedule extends CommonActivity {
-
+public class SScheduleFragment extends Fragment {
     MFCalendarView mf;
     TextView tv_content;
 
     String[] dates;
     ArrayList<SScheduleData> schedules;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schedule);
+    public SScheduleFragment() {
+        // Required empty public constructor
+    }
 
-        mf = (MFCalendarView) findViewById(R.id.mFCalendarView);
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.activity_schedule, container, false);
+        mf = (MFCalendarView)view.findViewById(R.id.mFCalendarView);
         mf.setOnCalendarViewListener(new onMFCalendarViewListener() {
             @Override
             public void onDateChanged(String date) {
@@ -47,21 +54,21 @@ import java.util.ArrayList;
                 } else {
                     dates[1] = String.valueOf(month);
                 }
-                new ScheduleTask().execute();
+                ScheduleTask scheduleTask = new ScheduleTask();
+                scheduleTask.execute();
             }
         });
-
-        tv_content = (TextView) findViewById(R.id.tv_content);
-
+        tv_content = (TextView)view.findViewById(R.id.tv_content);
         dates = mf.getSelectedDate().split("-");
+        ScheduleTask scheduleTask = new ScheduleTask();
+        scheduleTask.execute();
+        return view;
 
-        new ScheduleTask().execute();
-    }
+        }
 
-    @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
-        setCurrentMenu(Menus.MENU_SCHEDULE);
+
     }
 
     private void showSchedule() {
@@ -109,4 +116,11 @@ import java.util.ArrayList;
         }
     }
 }
-**/
+
+
+
+
+
+
+
+
