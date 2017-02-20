@@ -22,8 +22,7 @@
             android:id="@+id/btn_notice"
             android:gravity="center"
             android:text="@string/menu_notice"
-            android:textColor="@drawable/selector_widget_menu_text_color"
-            android:background="@drawable/selector_widget_menu_bg" />
+           />
 
         <Button
             android:layout_width="match_parent"
@@ -32,8 +31,7 @@
             android:id="@+id/btn_schedule"
             android:gravity="center"
             android:text="@string/menu_schedule"
-            android:textColor="@drawable/selector_widget_menu_text_color"
-            android:background="@drawable/selector_widget_menu_bg"/>
+            />
 
         <Button
             android:layout_width="match_parent"
@@ -42,8 +40,7 @@
             android:id="@+id/btn_food"
             android:gravity="center"
             android:text="@string/menu_food"
-            android:textColor="@drawable/selector_widget_menu_text_color"
-            android:background="@drawable/selector_widget_menu_bg"/>
+            />
 
         <Button
             android:layout_width="match_parent"
@@ -52,8 +49,7 @@
             android:id="@+id/btn_home"
             android:gravity="center"
             android:text="@string/menu_home"
-            android:textColor="@drawable/selector_widget_menu_text_color"
-            android:background="@drawable/selector_widget_menu_bg"/>
+            />
 
         <Button
             android:layout_width="match_parent"
@@ -62,8 +58,7 @@
             android:id="@+id/btn_job"
             android:gravity="center"
             android:text="@string/menu_job"
-            android:textColor="@drawable/selector_widget_menu_text_color"
-            android:background="@drawable/selector_widget_menu_bg"/>
+           />
 
         <Button
             android:layout_width="match_parent"
@@ -72,8 +67,7 @@
             android:id="@+id/btn_employee_news"
             android:gravity="center"
             android:text="@string/menu_employee_news"
-            android:textColor="@drawable/selector_widget_menu_text_color"
-            android:background="@drawable/selector_widget_menu_bg"/>
+            />
 
     </LinearLayout>
 

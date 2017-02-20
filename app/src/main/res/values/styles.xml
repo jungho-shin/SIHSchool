@@ -1,4 +1,9 @@
 <resources>
+    <style name="StyledIndicators" parent="@android:style/Theme.Light">
+
+        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
+
+    </style>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -7,6 +12,16 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="CustomTabPageIndicator" parent="Widget.TabPageIndicator">
+
+
+        <item name="android:textColor">#FF555555</item>
+        <item name="android:textSize">30sp</item>
+
+
+    </style>
+
+
 
     <style name="AppThemeNoTitle" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
