@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\calendar_arrow_right.png",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\calendar_arrow_right.png"
+    },
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\calendar_cel_selectl.png",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\calendar_cel_selectl.png"
+    },
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\calendarback.png",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\calendarback.png"
+    },
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\dot.png",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\dot.png"
+    },
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\calendar_arrow_left.png",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\calendar_arrow_left.png"
+    },
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\list_item_background.xml",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\list_item_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\calendar_top.png",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\calendar_top.png"
+    },
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\calendar_cell.png",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\mFCalendarView\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\calendar_cell.png"
+    }
+]
