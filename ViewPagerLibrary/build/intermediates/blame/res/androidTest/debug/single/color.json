@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\ViewPagerLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\vpi__light_theme.xml",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\ViewPagerLibrary\\build\\intermediates\\bundles\\debug\\res\\color\\vpi__light_theme.xml"
+    },
+    {
+        "merged": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\ViewPagerLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\vpi__dark_theme.xml",
+        "source": "C:\\Users\\sungh_000\\AndroidStudioProjects\\SIHSchool\\ViewPagerLibrary\\build\\intermediates\\bundles\\debug\\res\\color\\vpi__dark_theme.xml"
+    }
+]
