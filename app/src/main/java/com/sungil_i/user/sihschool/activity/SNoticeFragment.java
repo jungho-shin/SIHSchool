@@ -35,7 +35,7 @@ public class SNoticeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the  for this fragment
-        View view = inflater.inflate(R.layout.fragment_snotice, container, false);
+        View view = inflater.inflate(R.layout.fragment, container, false);
         listView = (ListView) view.findViewById(R.id.listview);
         NoticeTask noticeTask = new NoticeTask();
         noticeTask.execute();

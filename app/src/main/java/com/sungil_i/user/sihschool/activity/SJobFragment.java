@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.sungil_i.user.sihschool.R;
 import com.sungil_i.user.sihschool.adapter.SNoticeAdapter;
@@ -35,7 +34,7 @@ public class SJobFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_snotice, container, false);
+        View view = inflater.inflate(R.layout.fragment, container, false);
         listView = (ListView) view.findViewById(R.id.listview);
         JobTask jobTask = new JobTask();
         jobTask.execute();
