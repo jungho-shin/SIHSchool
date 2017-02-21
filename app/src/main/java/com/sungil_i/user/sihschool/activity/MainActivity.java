@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.sungil_i.user.sihschool.R;
 import com.viewpagerindicator.IconPageIndicator;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         VpAdapter vpAdapter = new VpAdapter(getSupportFragmentManager(),arrFragment);
         viewPager.setAdapter(vpAdapter);
         tabPageIndicator.setViewPager(viewPager);
+
+
 
         ;
 
