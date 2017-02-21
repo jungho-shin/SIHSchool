@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -30,7 +31,10 @@ import java.net.URL;
  * Created by user on 2016-11-08.
  */
 
-public class SNoticeDetail extends CommonActivity {
+public class SNoticeDetail extends MainActivity {
+
+
+
 
     TextView tv_title;
     TextView tv_name;
@@ -43,7 +47,10 @@ public class SNoticeDetail extends CommonActivity {
     LinearLayout ll_attach2;
     TextView tv_attachfile2;
 
+
+
     int index = 0;
+    int pages = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +71,17 @@ public class SNoticeDetail extends CommonActivity {
         Intent intent = getIntent();
         index = intent.getIntExtra("index", 0);
 
+
+
+
         new NoticeTask().execute();
     }
+
 
     @Override
     protected void onResume() {
         super.onResume();
-        setCurrentMenu(getCurrentMenu());
+
     }
 
     Html.ImageGetter imageGetter = new Html.ImageGetter() {
@@ -129,21 +140,27 @@ public class SNoticeDetail extends CommonActivity {
 
     class NoticeTask extends AsyncTask<Void, Void, SNoticeData> {
 
+        
 
         @Override
         protected SNoticeData doInBackground(Void... params) {
-            switch (getCurrentMenu()) {
-                case Menus.MENU_NOTICE:
-                    return new SConnector().getNotice(index);
-                case Menus.MENU_HOME:
-                    return new SConnector().getHome(index);
-                case Menus.MENU_JOB:
-                    return new SConnector().getJob(index);
-                case Menus.MENU_EMPLOYEE_NEWS:
-                    return new SConnector().getEmployeeNews(index);
-                default:
-                    return new SConnector().getNotice(index);
+            Intent intent = getIntent();
+
+            pages = intent.getIntExtra("pages",0);
+
+            if (pages==0){
+                return new SConnector().getNotice(index);
+            }else if (pages==3){
+                return new SConnector().getHome(index);
+            }else if (pages==4){
+                return new SConnector().getJob(index);
+            }else if (pages==5){
+                return new SConnector().getEmployeeNews(index);
+            }else{
+                return new SConnector().getNotice(index);
             }
+
+
         }
 
         @Override

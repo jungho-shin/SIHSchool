@@ -7,7 +7,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.sungil_i.user.sihschool.R;
 import com.viewpagerindicator.IconPageIndicator;
@@ -37,10 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         ;
-
-
-
     }
+
     protected class VpAdapter extends FragmentPagerAdapter {
         Fragment[] arrFragment;
         public VpAdapter(FragmentManager fm, Fragment[] arrFragment) {
@@ -50,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+
             return arrFragment[position];
+
         }
 
         @Override

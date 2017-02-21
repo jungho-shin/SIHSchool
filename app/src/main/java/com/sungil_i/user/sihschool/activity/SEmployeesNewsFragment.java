@@ -62,6 +62,7 @@ public class SEmployeesNewsFragment extends Fragment {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = new Intent(getActivity(), SNoticeDetail.class);
                     intent.putExtra("index", position);
+                    intent.putExtra("pages",5);
                     startActivity(intent);
                 }
             });
