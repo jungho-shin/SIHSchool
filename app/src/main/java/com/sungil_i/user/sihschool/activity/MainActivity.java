@@ -15,7 +15,7 @@ import com.sungil_i.user.sihschool.R;
 import com.viewpagerindicator.IconPageIndicator;
 import com.viewpagerindicator.TabPageIndicator;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
     String[] CONTENT = new String[] { "공지", "일정", "급식", "가정"+"\n"+"통신문", "취업", "취업자"+"\n"+"소식" };
 
     @Override
@@ -35,10 +35,51 @@ public class MainActivity extends AppCompatActivity {
         VpAdapter vpAdapter = new VpAdapter(getSupportFragmentManager(),arrFragment);
         viewPager.setAdapter(vpAdapter);
         tabPageIndicator.setViewPager(viewPager);
+        viewPager.setOnPageChangeListener(this);
 
-
+        setTitle(getString(R.string.menu_notice));
 
         ;
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        switch (position) {
+            case 0: {
+                setTitle(getString(R.string.menu_notice));
+                break;
+            }
+            case 1: {
+                setTitle(getString(R.string.menu_schedule));
+                break;
+            }
+            case 2: {
+                setTitle(getString(R.string.menu_food));
+                break;
+            }
+            case 3: {
+                setTitle(getString(R.string.menu_home));
+                break;
+            }
+            case 4: {
+                setTitle(getString(R.string.menu_job));
+                break;
+            }
+            case 5: {
+                setTitle(getString(R.string.menu_employee_news));
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 
     protected class VpAdapter extends FragmentPagerAdapter {
