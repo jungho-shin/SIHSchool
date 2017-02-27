@@ -171,6 +171,43 @@ public class SConnector {
 
     }
 
+    private SNoticeData parseJob(JSONObject data) {
+
+        SNoticeData notice = new SNoticeData();
+
+        if(data != null) {
+            try {
+                notice.setTitle(data.getString("title"));
+                notice.setName(data.getString("writer"));
+                notice.setHit(data.getInt("count"));
+                notice.setDate(data.getString("time"));
+                notice.setContent(data.getString("content"));
+
+                if(!data.isNull("첨부파일 1")) {
+                    JSONObject obj = new JSONObject(data.getString("첨부파일 1"));
+                    SAttachFileData attachFile = new SAttachFileData();
+                    attachFile.setFileName(obj.getString("fileName"));
+                    attachFile.setUrl(obj.getString("url"));
+                    notice.setAttachFile1(attachFile);
+                }
+
+                if(!data.isNull("첨부파일 2")) {
+                    JSONObject obj = new JSONObject(data.getString("첨부파일 2"));
+                    SAttachFileData attachFile = new SAttachFileData();
+                    attachFile.setFileName(obj.getString("fileName"));
+                    attachFile.setUrl(obj.getString("url"));
+                    notice.setAttachFile2(attachFile);
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return notice;
+
+    }
+
     private ArrayList<SNoticeData> parseNotices(JSONArray datas) {
 
         ArrayList<SNoticeData> notices = new ArrayList<SNoticeData>();
@@ -467,7 +504,7 @@ public class SConnector {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return parseNotice(data);
+        return parseJob(data);
     }
 
 
@@ -502,7 +539,7 @@ public class SConnector {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return parseNotice(data);
+        return parseJob(data);
     }
 
 }

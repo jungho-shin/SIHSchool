@@ -140,13 +140,15 @@ public class SNoticeDetail extends MainActivity {
 
     class NoticeTask extends AsyncTask<Void, Void, SNoticeData> {
 
-        
+        private final String TAG = NoticeTask.class.getSimpleName();
 
         @Override
         protected SNoticeData doInBackground(Void... params) {
             Intent intent = getIntent();
 
             pages = intent.getIntExtra("pages",0);
+
+            Log.d(TAG, "index : " + index);
 
             if (pages==0){
                 return new SConnector().getNotice(index);
