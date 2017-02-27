@@ -11,4 +11,7 @@
 
     <color name="list_item_notice_index_color">#464646</color>
     <color name="devider_color">#C0C0C0</color>
+
+    <color name="menu_devider_start_color">#b2b2b2</color>
+    <color name="menu_devider_end_color">#efefef</color>
 </resources>

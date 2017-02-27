@@ -20,6 +20,16 @@
                 >
 
         </android.support.v4.view.ViewPager>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/menu_devider_end_color"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/menu_devider_start_color"
+            />
         <com.viewpagerindicator.TabPageIndicator
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
