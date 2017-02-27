@@ -136,6 +136,41 @@ public class SConnector {
 
     }
 
+    private ArrayList<SNoticeData> parseJobs(JSONArray datas) {
+
+        ArrayList<SNoticeData> jobs = new ArrayList<SNoticeData>();
+
+        if(datas != null) {
+
+            for(int i = 0; i < datas.length(); i++) {
+
+                JSONObject data = null;
+
+                try {
+
+                    data = (JSONObject) datas.get(i);
+
+                    SNoticeData notice = new SNoticeData();
+//                    notice.setIndex(data.getString("번호"));
+//                    notice.setAttachment(data.getString("첨부"));
+                    notice.setTitle(data.getString("title"));
+                    notice.setName(data.getString("writer"));
+                    notice.setDate(data.getString("time"));
+                    notice.setHit(data.getInt("count"));
+
+                    jobs.add(notice);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+
+        return jobs;
+
+    }
+
     private ArrayList<SNoticeData> parseNotices(JSONArray datas) {
 
         ArrayList<SNoticeData> notices = new ArrayList<SNoticeData>();
@@ -415,7 +450,7 @@ public class SConnector {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return parseNotices(data);
+        return parseJobs(data);
     }
 
     /**
@@ -450,7 +485,7 @@ public class SConnector {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return parseNotices(data);
+        return parseJobs(data);
     }
 
     /**
