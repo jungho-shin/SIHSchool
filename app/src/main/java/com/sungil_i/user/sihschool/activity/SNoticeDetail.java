@@ -9,6 +9,7 @@ import android.graphics.drawable.LevelListDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -74,7 +75,12 @@ public class SNoticeDetail extends MainActivity {
 
 
 
+
+
+
+
         new NoticeTask().execute();
+
     }
 
 
@@ -83,6 +89,7 @@ public class SNoticeDetail extends MainActivity {
         super.onResume();
 
     }
+
 
     Html.ImageGetter imageGetter = new Html.ImageGetter() {
         @Override

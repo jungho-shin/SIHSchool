@@ -37,6 +37,7 @@ public class SEmployeesNewsFragment extends Fragment {
 
         NewsTask newsTask = new NewsTask();
         newsTask.execute();
+
         return view;
     }
     @Override

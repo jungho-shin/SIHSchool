@@ -37,12 +37,15 @@ public class HomeMailFrament extends Fragment {
         listView = (ListView)view.findViewById(R.id.listview);
         HomeMailTask homeMailTask = new HomeMailTask();
         homeMailTask.execute();
+
         return view;
     }
     @Override
     public void onResume() {
         super.onResume();
     }
+
+
 
     class HomeMailTask extends AsyncTask<Void, Void, ArrayList<SNoticeData>> {
 

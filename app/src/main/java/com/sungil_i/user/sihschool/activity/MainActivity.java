@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
         VpAdapter vpAdapter = new VpAdapter(getSupportFragmentManager(), arrFragment);
         viewPager.setAdapter(vpAdapter);
+        PageListner pageListner = new PageListner();
+        viewPager.addOnPageChangeListener(pageListner);
 
         listView = (ListView) findViewById(R.id.listview);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, CONTENT);
@@ -68,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
 
 
 
@@ -78,38 +82,45 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         viewPager.setCurrentItem(position);
+                        setTitle(CONTENT[position]);
                         break;
 
                     case 1:
                         viewPager.setCurrentItem(position);
+                        setTitle(CONTENT[position]);
                         break;
 
                     case 2:
                         viewPager.setCurrentItem(position);
+                        setTitle(CONTENT[position]);
                         break;
 
                     case 3:
                         viewPager.setCurrentItem(position);
+                        setTitle(CONTENT[position]);
                         break;
 
                     case 4:
                         viewPager.setCurrentItem(position);
+                        setTitle(CONTENT[position]);
                         break;
 
                     case 5:
                         viewPager.setCurrentItem(position);
+                        setTitle(CONTENT[position]);
                         break;
 
 
                 }
+
                 drawerLayout.closeDrawer(listView);
 
 
             }
         });
+        setTitle("공지");
 
 
-        setTitle(getString(R.string.menu_notice));
 
 
     }
@@ -117,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected class VpAdapter extends FragmentPagerAdapter {
         Fragment[] arrFragment;
+
 
         public VpAdapter(FragmentManager fm, Fragment[] arrFragment) {
             super(fm);
@@ -126,7 +138,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
+
             return arrFragment[position];
+
 
         }
 
@@ -136,6 +150,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
+
+    }
+    protected class PageListner implements ViewPager.OnPageChangeListener{
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            setTitle(CONTENT[position]);
+
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
     }
     protected void onPostCreate(Bundle savedInstanceState){
         super.onPostCreate(savedInstanceState);
