@@ -25,15 +25,15 @@ import com.viewpagerindicator.TabPageIndicator;
 
 public class MainActivity extends AppCompatActivity {
     String[] CONTENT = new String[]{"공지", "일정", "급식", "가정" + "\n" + "통신문", "취업", "취업자" + "\n" + "소식"};
-    private DrawerLayout drawerLayout ;
-    private ListView listView;
-    private ActionBarDrawerToggle actionBarDrawerToggle ;
-    ViewPager viewPager;
+     DrawerLayout drawerLayout = null;
+     ListView listView = null;
+     ActionBarDrawerToggle actionBarDrawerToggle;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         Fragment[] arrFragment = new Fragment[6];
         arrFragment[0] = new SNoticeFragment();
@@ -42,16 +42,16 @@ public class MainActivity extends AppCompatActivity {
         arrFragment[5] = new SEmployeesNewsFragment();
         arrFragment[4] = new SJobFragment();
         arrFragment[3] = new HomeMailFrament();
-        viewPager = (ViewPager) findViewById(R.id.vp);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.vp);
+
         VpAdapter vpAdapter = new VpAdapter(getSupportFragmentManager(), arrFragment);
         viewPager.setAdapter(vpAdapter);
-
 
         listView = (ListView) findViewById(R.id.listview);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, CONTENT);
         listView.setAdapter(adapter);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
+
 
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
@@ -68,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -99,14 +103,14 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 drawerLayout.closeDrawer(listView);
+
+
             }
         });
 
 
-
-
         setTitle(getString(R.string.menu_notice));
-        ;
+
 
     }
 
@@ -133,7 +137,25 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    protected void onPostCreate(Bundle savedInstanceState){
+        super.onPostCreate(savedInstanceState);
+        actionBarDrawerToggle.syncState();
+    }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        actionBarDrawerToggle.onConfigurationChanged(newConfig);
+    }
 
-};
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+}
 

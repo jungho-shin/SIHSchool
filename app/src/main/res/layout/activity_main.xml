@@ -11,23 +11,32 @@
 
 
 
-    <android.support.v4.view.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-        android:id="@+id/vp"
-            >
+            android:id="@+id/vp"
+                >
 
-    </android.support.v4.view.ViewPager>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
+        </android.support.v4.view.ViewPager>
 
-        android:id="@+id/listview"
-        android:background="#EDEDED"
-        >
-    </ListView>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+
+                android:id="@+id/listview"
+                android:background="#EDEDED"
+
+                />
+
+
+
+
+
+
+
 
 
 
