@@ -15,5 +15,7 @@
     <string name="column_content">내용</string>
     <string name="column_attach_file1">첨부파일1</string>
     <string name="column_attach_file2">첨부파일2</string>
+    <string name="open_drawer">메뉴</string>
+    <string name="close_drawer"></string>
 </resources>
 

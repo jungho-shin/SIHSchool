@@ -13,7 +13,7 @@ import com.sungil_i.user.sihschool.widget.OnMenuClickListener;
  * Created by user on 2016-11-08.
  */
 
-public class CommonActivity extends AppCompatActivity implements OnMenuClickListener {
+/*public class CommonActivity extends AppCompatActivity implements OnMenuClickListener {
 
     private Menus menus;
     private static int currentMenu;
@@ -76,3 +76,4 @@ public class CommonActivity extends AppCompatActivity implements OnMenuClickList
         return currentMenu;
     }
 }
+*/
