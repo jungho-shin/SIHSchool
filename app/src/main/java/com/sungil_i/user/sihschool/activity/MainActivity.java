@@ -25,10 +25,12 @@ import com.viewpagerindicator.IconPageIndicator;
 import com.viewpagerindicator.TabPageIndicator;
 
 public class MainActivity extends AppCompatActivity {
-    String[] CONTENT = new String[]{"공지", "일정", "급식", "가정" + "\n" + "통신문", "취업", "취업자" + "\n" + "소식"};
+    String[] CONTENT = new String[]{"공지", "일정", "급식", "가정통신문", "취업", "취업자소식"};
      DrawerLayout drawerLayout = null;
      ListView listView = null;
      ActionBarDrawerToggle actionBarDrawerToggle;
+
+
 
 
     @Override
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listview);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, CONTENT);
         listView.setAdapter(adapter);
+
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
 
 
@@ -119,6 +122,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         setTitle("공지");
+
+
+
+
 
 
 
@@ -190,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 }
 
