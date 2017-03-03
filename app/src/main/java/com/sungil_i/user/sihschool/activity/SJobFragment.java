@@ -64,6 +64,7 @@ public class SJobFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), SNoticeDetail.class);
                     intent.putExtra("index", position);
                     intent.putExtra("pages",4);
+                    intent.putExtra("title",2);
                     startActivity(intent);
 
                 }

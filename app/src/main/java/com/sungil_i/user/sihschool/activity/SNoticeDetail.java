@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ import java.net.URL;
  */
 
 public class SNoticeDetail extends MainActivity {
+    String[] CONTENT = new String[]{"공지", "가정통신문", "취업", "취업자소식"};
 
 
 
@@ -52,6 +54,7 @@ public class SNoticeDetail extends MainActivity {
 
     int index = 0;
     int pages = 0;
+    int title = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +74,13 @@ public class SNoticeDetail extends MainActivity {
 
         Intent intent = getIntent();
         index = intent.getIntExtra("index", 0);
+        title = intent.getIntExtra("title",0);
+        setTitle(CONTENT[title]);
 
 
+        ActionBar actionBar = getSupportActionBar();
 
-
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 
 
@@ -83,6 +89,16 @@ public class SNoticeDetail extends MainActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // NavUtils.navigateUpFromSameTask(this);
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onResume() {

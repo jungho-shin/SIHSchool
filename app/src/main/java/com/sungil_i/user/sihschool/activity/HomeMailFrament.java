@@ -66,6 +66,7 @@ public class HomeMailFrament extends Fragment {
                     Intent intent = new Intent(getActivity(), SNoticeDetail.class);
                     intent.putExtra("index", position);
                     intent.putExtra("pages",3);
+                    intent.putExtra("title",1);
                     startActivity(intent);
                 }
             });

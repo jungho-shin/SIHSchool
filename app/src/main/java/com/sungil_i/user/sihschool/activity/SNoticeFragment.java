@@ -67,6 +67,7 @@ public class SNoticeFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), SNoticeDetail.class);
                     intent.putExtra("index", position);
                     intent.putExtra("pages",0);
+                    intent.putExtra("title",0);
                     startActivity(intent);
                 }
             });

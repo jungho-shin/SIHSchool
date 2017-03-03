@@ -64,6 +64,7 @@ public class SEmployeesNewsFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), SNoticeDetail.class);
                     intent.putExtra("index", position);
                     intent.putExtra("pages",5);
+                    intent.putExtra("title",3);
                     startActivity(intent);
                 }
             });
