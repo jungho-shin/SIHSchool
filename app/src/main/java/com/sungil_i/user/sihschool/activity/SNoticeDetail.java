@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -33,7 +34,7 @@ import java.net.URL;
  * Created by user on 2016-11-08.
  */
 
-public class SNoticeDetail extends MainActivity {
+public class SNoticeDetail extends AppCompatActivity {
     String[] CONTENT = new String[]{"공지", "가정통신문", "취업", "취업자소식"};
 
 
@@ -81,6 +82,7 @@ public class SNoticeDetail extends MainActivity {
         ActionBar actionBar = getSupportActionBar();
 
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
 
 
 

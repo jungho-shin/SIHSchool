@@ -145,30 +145,28 @@
                 android:background="@color/devider_color"/>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:orientation="horizontal"
                 android:paddingBottom="17dp"
-                android:paddingTop="17dp">
+                android:paddingTop="17dp"
+                >
+                <android.support.v4.widget.Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent" />
 
                 <TextView
-                    android:text="@string/column_content"
-                    android:textColor="@color/list_item_notice_index_color"
-                    android:textSize="15dp"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView10"
-                    android:gravity="center_horizontal" />
-
-                <TextView
-                    android:text="-"
-                    android:textColor="@color/list_item_notice_index_color"
-                    android:textSize="15dp"
+                    android:id="@+id/tv_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:text="-"
+                    android:textColor="@color/list_item_notice_index_color"
+                    android:textSize="15dp" />
+                <android.support.v4.widget.Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
             <View
